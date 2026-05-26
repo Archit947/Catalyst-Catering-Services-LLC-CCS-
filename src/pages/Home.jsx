@@ -1,27 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { VerticalImageStack } from '../components/ui/vertical-image-stack';
 
 function Home() {
   return (
     <main>
       {/* HERO SECTION */}
-      <section style={{ position: 'relative', minHeight: '90vh', display: 'flex', alignItems: 'center', paddingTop: '80px' }}>
-        <div style={{ position: 'absolute', inset: 0, zIndex: -1 }}>
-          <img src="/hero_kitchen_bg.png" alt="Premium Kitchen" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%)' }}></div>
+      <section className="hero-section" style={{ position: 'relative', minHeight: '100vh', display: 'flex', backgroundColor: 'var(--color-bg)', overflow: 'hidden', paddingTop: '80px' }}>
+        <div className="hero-left" style={{ width: '50%', height: 'calc(100vh - 80px)', position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center' }}>
+          <VerticalImageStack />
         </div>
-
-        <div className="container" style={{ position: 'relative', zIndex: 10, display: 'flex' }}>
-          <div style={{ maxWidth: '700px', padding: 'var(--spacing-2xl) 0' }}>
-            <span className="tag" style={{ backgroundColor: 'rgba(212, 175, 55, 0.15)', color: 'var(--color-accent)', border: '1px solid rgba(212, 175, 55, 0.3)' }}>Premium Food Services</span>
-            <h1 style={{ fontSize: '4.5rem', marginBottom: 'var(--spacing-lg)', color: 'white', textShadow: '0 4px 12px rgba(0,0,0,0.4)', lineHeight: 1.1 }}>
-              Elevate your palate with <i style={{color: 'var(--color-accent)'}}>unforgettable</i> flavors.
+        
+        <div className="hero-right" style={{ width: '50%', display: 'flex', alignItems: 'center', paddingLeft: 'var(--spacing-xl)', paddingRight: 'var(--spacing-xl)', zIndex: 2 }}>
+          <div style={{ maxWidth: '800px' }}>
+            <div style={{ display: 'inline-block', padding: '0.5rem 1.5rem', border: '1px solid var(--color-primary)', borderRadius: 'var(--radius-full)', color: 'var(--color-primary)', letterSpacing: '2px', fontSize: '0.85rem', textTransform: 'uppercase', marginBottom: 'var(--spacing-lg)' }}>
+              Integrated Solutions
+            </div>
+            <h1 style={{ fontSize: '4.5rem', marginBottom: 'var(--spacing-md)', color: 'var(--color-primary-dark)', lineHeight: 1.1 }}>
+              Elevate your business with <span style={{color: 'var(--color-accent)', fontStyle: 'italic', display: 'inline-block'}}>world-class</span> services.
             </h1>
-            <p style={{ color: '#E8E2D2', fontSize: '1.2rem', marginBottom: 'var(--spacing-xl)', lineHeight: 1.8, textShadow: '0 2px 4px rgba(0,0,0,0.5)', maxWidth: '600px' }}>
-              We deliver comprehensive, world-class food service solutions across the UAE, driven by a deep commitment to culinary excellence and sustainability.
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '1.4rem', marginBottom: 'var(--spacing-xl)', maxWidth: '650px', lineHeight: 1.6, fontWeight: 300 }}>
+              We deliver comprehensive food and facility management solutions across the UAE, driven by a deep commitment to excellence and sustainability.
             </p>
             <div className="flex gap-md">
-              <a href="#expertise" className="btn btn-accent" style={{ border: '1px solid rgba(255,255,255,0.3)' }}>Explore Services</a>
+              <Link to="/services" className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>Explore Services</Link>
             </div>
           </div>
         </div>
@@ -29,7 +31,7 @@ function Home() {
 
       {/* EXCELLENCE SECTION */}
       <section className="section section-bg-alt">
-        <div className="container flex gap-xl" style={{ alignItems: 'center' }}>
+        <div className="container flex gap-xl section-responsive" style={{ alignItems: 'center' }}>
           <div style={{ flex: '1', position: 'relative' }}>
             <div style={{ position: 'absolute', inset: '-20px', border: '1px solid var(--color-accent)', borderRadius: 'var(--radius-xl)', zIndex: 0, transform: 'translate(20px, 20px)' }}></div>
             <img src="/salad_plating.png" alt="Healthy Salad" className="hover-card" style={{ borderRadius: 'var(--radius-xl)', position: 'relative', zIndex: 1 }} />
@@ -79,7 +81,7 @@ function Home() {
             </div>
 
             <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src="/industrial_canteen.png" alt="Industrial Canteen" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/src/assets/3.png" alt="Industrial Canteen" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,81,50,0.95), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                 <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Industrial Canteen</h3>
                 <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Nutritious, large-scale catering designed for workforce energy and well-being.</p>
@@ -87,7 +89,7 @@ function Home() {
             </div>
 
             <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src="/education_food.png" alt="School Cafeteria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/src/assets/2.png" alt="School Cafeteria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,81,50,0.95), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                 <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>School Cafeteria</h3>
                 <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Wholesome, balanced, and appealing meals to foster healthy eating habits.</p>
@@ -111,7 +113,7 @@ function Home() {
             </div>
 
             <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src="/guest_house.png" alt="Guest house Management" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/src/assets/4.png" alt="Guest house Management" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,81,50,0.95), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                 <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Guest House Management</h3>
                 <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Luxurious hospitality and dining services for corporate lodging.</p>
@@ -124,7 +126,7 @@ function Home() {
 
       {/* VALUES SECTION */}
       <section className="section section-bg-alt">
-        <div className="container flex gap-2xl">
+        <div className="container flex gap-2xl section-responsive" style={{ columnGap: 'var(--spacing-3xl)' }}>
           <div style={{ flex: '1' }}>
             <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-lg)' }}>Core <i style={{color: 'var(--color-accent)', fontWeight: 400}}>Values</i></h2>
             <p style={{ color: 'var(--color-text-muted)', marginBottom: 'var(--spacing-2xl)', fontSize: '1.1rem' }}>
@@ -186,10 +188,10 @@ function Home() {
             <div style={{ width: '80px', height: '4px', backgroundColor: 'var(--color-accent)', margin: '0 auto' }}></div>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--spacing-xl)' }}>
+          <div className="grid-3" style={{ gap: 'var(--spacing-xl)' }}>
             <div className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ color: 'var(--color-primary)' }}>📍</span> Corporate Office
+                <span style={{ color: 'var(--color-primary)' }}>📍</span> India Office
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
                 Catalyst Service Solutions Partners Private Limited<br/><br/>
@@ -220,6 +222,7 @@ function Home() {
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> Middle East
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
+                 Catalyst Catering Services LLC (CCS)<br/><br/>
                 DIP -2,<br/>
                 Dubai, UAE
               </p>

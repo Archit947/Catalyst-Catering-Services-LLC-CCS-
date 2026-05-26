@@ -4,7 +4,7 @@ function ContactUs() {
   return (
     <main>
       {/* HERO SECTION */}
-      <section style={{ position: 'relative', minHeight: '50vh', display: 'flex', alignItems: 'center', paddingTop: '80px', backgroundColor: 'var(--color-primary-dark)' }}>
+      <section className="hero-section" style={{ position: 'relative', minHeight: '50vh', display: 'flex', alignItems: 'center', paddingTop: '80px' }}>
         <div style={{ position: 'absolute', inset: 0, zIndex: -1 }}>
           <img src="/contact_hero.png" alt="Contact Us" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%)' }}></div>
@@ -29,7 +29,7 @@ function ContactUs() {
             </p>
           </div>
             
-          <form className="glass-panel" style={{ padding: 'var(--spacing-3xl)', borderRadius: 'var(--radius-xl)', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-lg)' }}>
+          <form className="glass-panel contact-form" style={{ padding: 'var(--spacing-3xl)', borderRadius: 'var(--radius-xl)', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-lg)' }}>
             <div className="flex gap-lg">
               <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                 <label style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: '0.5rem' }}>Name*</label>
@@ -83,10 +83,10 @@ function ContactUs() {
             <div style={{ width: '80px', height: '4px', backgroundColor: 'var(--color-accent)', margin: '0 auto' }}></div>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--spacing-xl)' }}>
+          <div className="grid-3" style={{ gap: 'var(--spacing-xl)' }}>
             <div className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ color: 'var(--color-primary)' }}>📍</span> Corporate Office
+                <span style={{ color: 'var(--color-primary)' }}>📍</span> India Office
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
                 Catalyst Service Solutions Partners Private Limited<br/><br/>
