@@ -1,15 +1,17 @@
 import React, { useState, useCallback, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
+import image1 from "../../assets/1.png"
+import image2 from "../../assets/2.png"
 
 const images = [
   {
     id: 1,
-    src: "/src/assets/1.png",
+    src: image1,
     alt: "Gourmet food plating",
   },
   {
     id: 2,
-    src: "/src/assets/2.png",
+    src: image2,
     alt: "Fine dining restaurant",
   },
   {

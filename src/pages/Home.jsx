@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { VerticalImageStack } from '../components/ui/vertical-image-stack';
+import serviceImage2 from '../assets/2.png';
+import serviceImage3 from '../assets/3.png';
+import serviceImage4 from '../assets/4.png';
 
 function Home() {
   return (
@@ -81,7 +84,7 @@ function Home() {
             </div>
 
             <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src="/src/assets/3.png" alt="Industrial Canteen" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={serviceImage3} alt="Industrial Canteen" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,81,50,0.95), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                 <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Industrial Canteen</h3>
                 <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Nutritious, large-scale catering designed for workforce energy and well-being.</p>
@@ -89,7 +92,7 @@ function Home() {
             </div>
 
             <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src="/src/assets/2.png" alt="School Cafeteria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={serviceImage2} alt="School Cafeteria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,81,50,0.95), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                 <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>School Cafeteria</h3>
                 <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Wholesome, balanced, and appealing meals to foster healthy eating habits.</p>
@@ -113,7 +116,7 @@ function Home() {
             </div>
 
             <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src="/src/assets/4.png" alt="Guest house Management" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={serviceImage4} alt="Guest house Management" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(15,81,50,0.95), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                 <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Guest House Management</h3>
                 <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Luxurious hospitality and dining services for corporate lodging.</p>
