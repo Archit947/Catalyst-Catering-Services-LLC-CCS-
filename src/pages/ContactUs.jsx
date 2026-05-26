@@ -117,6 +117,7 @@ function ContactUs() {
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> Middle East
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
+                Catalyst Catering Services LLC (CCS)<br/><br/>
                 DIP -2,<br/>
                 Dubai, UAE
               </p>

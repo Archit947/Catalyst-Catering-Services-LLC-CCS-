@@ -76,11 +76,23 @@ function App() {
           </button>
         </div>
         <div className={`mobile-menu-panel ${isMobileMenuOpen ? 'is-open' : ''}`}>
+          <div className="mobile-menu-header">
+            <span>Menu</span>
+            <button
+              type="button"
+              className="mobile-menu-close"
+              aria-label="Close menu"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
           <nav className="mobile-menu-links">
             <Link to="/">Home</Link>
             <Link to="/services">Food Services</Link>
             <Link to="/facility-management">Facility Management</Link>
             <Link to="/about-us">About Us</Link>
+            <Link to="/contact-us">Contact Us</Link>
             <Link to="/contact-us" className="btn btn-primary">Contact Us</Link>
           </nav>
         </div>
@@ -97,8 +109,8 @@ function App() {
       </Routes>
 
       {/* FOOTER */}
-      <footer style={{ padding: 'var(--spacing-3xl) 0 var(--spacing-xl)', backgroundColor: 'var(--color-bg)' }}>
-        <div className="container footer-inner">
+      <footer className="site-footer" style={{ padding: 'var(--spacing-3xl) 0 var(--spacing-xl)', backgroundColor: 'var(--color-bg)' }}>
+        <div className="container footer-inner footer-desktop">
           <div className="flex justify-between items-center footer-top" style={{ borderBottom: '1px solid var(--color-border)', paddingBottom: 'var(--spacing-2xl)', marginBottom: 'var(--spacing-xl)' }}>
             <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
               <img src="/logo.webp" alt="Catalyst" style={{ height: '50px' }} />
@@ -115,6 +127,48 @@ function App() {
               <a href="#privacy">Privacy Policy</a>
               <a href="#terms">Terms of Service</a>
             </div>
+          </div>
+        </div>
+
+        <div className="footer-mobile">
+          <div className="footer-mobile-header">
+            <img className="footer-mobile-logo" src="/logo.webp" alt="Catalyst" />
+          </div>
+
+          <div className="footer-mobile-links">
+            <Link to="/">Home</Link>
+            <Link to="/services">Services</Link>
+            <Link to="/facility-management">Facility Management</Link>
+            <Link to="/about-us">About Us</Link>
+            <Link to="/contact-us">Contact Us</Link>
+          </div>
+
+          <div className="footer-mobile-contact">
+            <div className="footer-contact-item">
+              <span className="footer-contact-icon">✉</span>
+              <span>sales@catalystsolutions.eco</span>
+            </div>
+            <div className="footer-contact-item">
+              <span className="footer-contact-icon">☎</span>
+              <span>+91 20 4850 4000</span>
+            </div>
+          </div>
+
+          <div className="footer-mobile-bottom">
+            <div className="footer-mobile-social">in</div>
+            <button
+              type="button"
+              className="footer-mobile-top"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              aria-label="Back to top"
+            >
+              ↑
+            </button>
+          </div>
+
+          <div className="footer-mobile-legal">
+            <div>Catalyst Service Solutions Partners Pvt. Ltd. (CSSPPL)</div>
+            <div>© 2026 All rights reserved.</div>
           </div>
         </div>
       </footer>
