@@ -31,8 +31,41 @@ const images = [
   },
 ]
 
+const getStackMetrics = (width) => {
+  if (width <= 480) {
+    return {
+      cardWidth: 340,
+      cardHeight: 430,
+      offset: 140,
+      offsetFar: 240,
+      offsetHidden: 360,
+    }
+  }
+
+  if (width <= 768) {
+    return {
+      cardWidth: 430,
+      cardHeight: 540,
+      offset: 180,
+      offsetFar: 300,
+      offsetHidden: 460,
+    }
+  }
+
+  return {
+    cardWidth: 550,
+    cardHeight: 600,
+    offset: 220,
+    offsetFar: 400,
+    offsetHidden: 600,
+  }
+}
+
 export function VerticalImageStack() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [stackMetrics, setStackMetrics] = useState(() =>
+    getStackMetrics(typeof window !== "undefined" ? window.innerWidth : 1200),
+  )
   const lastNavigationTime = useRef(0)
   const navigationCooldown = 400 // ms between navigations
 
@@ -82,6 +115,15 @@ export function VerticalImageStack() {
     return () => window.removeEventListener("wheel", handleWheel)
   }, [handleWheel])
 
+  useEffect(() => {
+    const handleResize = () => {
+      setStackMetrics(getStackMetrics(window.innerWidth))
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
   // Auto-rotate every 3.5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -99,15 +141,15 @@ export function VerticalImageStack() {
     if (diff === 0) {
       return { x: 0, scale: 1, opacity: 1, zIndex: 5, rotateY: 0 }
     } else if (diff === -1) {
-      return { x: -220, scale: 0.85, opacity: 0.7, zIndex: 4, rotateY: -10 }
+      return { x: -stackMetrics.offset, scale: 0.85, opacity: 0.7, zIndex: 4, rotateY: -10 }
     } else if (diff === -2) {
-      return { x: -400, scale: 0.7, opacity: 0.4, zIndex: 3, rotateY: -20 }
+      return { x: -stackMetrics.offsetFar, scale: 0.7, opacity: 0.4, zIndex: 3, rotateY: -20 }
     } else if (diff === 1) {
-      return { x: 220, scale: 0.85, opacity: 0.7, zIndex: 4, rotateY: 10 }
+      return { x: stackMetrics.offset, scale: 0.85, opacity: 0.7, zIndex: 4, rotateY: 10 }
     } else if (diff === 2) {
-      return { x: 400, scale: 0.7, opacity: 0.4, zIndex: 3, rotateY: 20 }
+      return { x: stackMetrics.offsetFar, scale: 0.7, opacity: 0.4, zIndex: 3, rotateY: 20 }
     } else {
-      return { x: diff > 0 ? 600 : -600, scale: 0.5, opacity: 0, zIndex: 0, rotateY: diff > 0 ? 30 : -30 }
+      return { x: diff > 0 ? stackMetrics.offsetHidden : -stackMetrics.offsetHidden, scale: 0.5, opacity: 0, zIndex: 0, rotateY: diff > 0 ? 30 : -30 }
     }
   }
 
@@ -168,8 +210,8 @@ export function VerticalImageStack() {
               <div
                 style={{
                   position: 'relative',
-                  height: '600px',
-                  width: '550px',
+                  height: `${stackMetrics.cardHeight}px`,
+                  width: `${stackMetrics.cardWidth}px`,
                   overflow: 'hidden',
                   borderRadius: '24px',
                   backgroundColor: 'white',

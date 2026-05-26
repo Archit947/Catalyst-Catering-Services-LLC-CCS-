@@ -9,6 +9,7 @@ import ScrollToTop from './ScrollToTop';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   
   useEffect(() => {
@@ -18,6 +19,10 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   // Determine if navbar should be transparent
   // Only transparent at the top of the home page
@@ -60,6 +65,24 @@ function App() {
             <Link to="/about-us" style={{textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem'}}>About Us</Link>
           </nav>
           <Link to="/contact-us" className="btn btn-primary" style={{padding: '0.6rem 1.5rem', fontSize: '0.9rem', fontWeight: 600, transition: 'all 0.3s'}}>Contact Us</Link>
+          <button
+            type="button"
+            className="mobile-menu-button"
+            aria-label="Open menu"
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
+          >
+            <span className="mobile-menu-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div className={`mobile-menu-panel ${isMobileMenuOpen ? 'is-open' : ''}`}>
+          <nav className="mobile-menu-links">
+            <Link to="/">Home</Link>
+            <Link to="/services">Food Services</Link>
+            <Link to="/facility-management">Facility Management</Link>
+            <Link to="/about-us">About Us</Link>
+            <Link to="/contact-us" className="btn btn-primary">Contact Us</Link>
+          </nav>
         </div>
       </header>
       

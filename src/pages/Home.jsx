@@ -26,7 +26,7 @@ function Home() {
               We deliver comprehensive food and facility management solutions across the UAE, driven by a deep commitment to excellence and sustainability.
             </p>
             <div className="flex gap-md">
-              <Link to="/services" className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>Explore Services</Link>
+              <Link to="/services" className="btn btn-primary hero-cta" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>Explore Services</Link>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@ function Home() {
             <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto', fontSize: '1.1rem' }}>Tailored culinary solutions across key sectors, maintaining the highest standards of luxury, quality, and hygiene.</p>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--spacing-lg)' }}>
+          <div className="expertise-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--spacing-lg)' }}>
             
             <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
               <img src="/food_court.png" alt="Cafeteria & Food Court" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -136,7 +136,7 @@ function Home() {
               At Catalyst, we prioritize sustainability and luxury by implementing environmentally friendly solutions while creating immense value for all stakeholders.
             </p>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--spacing-lg)' }}>
+            <div className="values-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--spacing-lg)' }}>
               {[
                 { icon: '🌿', title: 'Environment', desc: 'Positive action through environmental protection.' },
                 { icon: '⚖️', title: 'Integrity', desc: 'Absolute transparency in all business practices.' },
@@ -167,7 +167,7 @@ function Home() {
           <h2 style={{ color: 'white', marginBottom: 'var(--spacing-sm)', fontSize: '2.5rem' }}>World-Class Domain Expertise</h2>
           <p style={{ color: '#E8E2D2', marginBottom: 'var(--spacing-3xl)', fontSize: '1.1rem' }}>Constantly adapting to elite market needs and innovating luxury solutions.</p>
           
-          <div className="flex justify-between" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div className="flex justify-between stats-row" style={{ maxWidth: '1000px', margin: '0 auto' }}>
             {[
               { num: '300M', label: 'REVENUE' },
               { num: '50K+', label: 'MEALS SERVED' },
