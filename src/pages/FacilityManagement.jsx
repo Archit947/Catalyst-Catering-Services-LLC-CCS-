@@ -42,7 +42,7 @@ function FacilityManagement() {
             {/* Card 1 */}
             <div style={{ position: 'relative', height: '420px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 25px rgba(0,0,0,0.1)' }}>
               <img src="/soft_service.png" alt="Soft Service Solutions" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2.5rem 2rem', background: 'linear-gradient(to top, rgba(22, 75, 45, 0.95) 0%, rgba(22, 75, 45, 0.8) 50%, transparent 100%)', textAlign: 'left', color: 'white' }}>
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2.5rem 2rem', background: 'linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.75) 50%, transparent 100%)', textAlign: 'left', color: 'white' }}>
                 <h3 style={{ fontSize: '1.8rem', marginBottom: '0.8rem', fontFamily: 'serif', fontWeight: '600', color: '#fff' }}>Soft Service Solutions</h3>
                 <p style={{ fontSize: '1rem', lineHeight: '1.5', opacity: 0.95 }}>
                   Professional housekeeping, landscaping, and waste management for a pristine environment.
@@ -53,7 +53,7 @@ function FacilityManagement() {
             {/* Card 2 */}
             <div style={{ position: 'relative', height: '420px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 25px rgba(0,0,0,0.1)' }}>
               <img src="/business_support.png" alt="Business Support Service Solutions" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2.5rem 2rem', background: 'linear-gradient(to top, rgba(22, 75, 45, 0.95) 0%, rgba(22, 75, 45, 0.8) 50%, transparent 100%)', textAlign: 'left', color: 'white' }}>
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2.5rem 2rem', background: 'linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.75) 50%, transparent 100%)', textAlign: 'left', color: 'white' }}>
                 <h3 style={{ fontSize: '1.8rem', marginBottom: '0.8rem', fontFamily: 'serif', fontWeight: '600', color: '#fff' }}>Business Support</h3>
                 <p style={{ fontSize: '1rem', lineHeight: '1.5', opacity: 0.95 }}>
                   Comprehensive administrative and support services tailored to your corporate needs.
@@ -64,7 +64,7 @@ function FacilityManagement() {
             {/* Card 3 */}
             <div style={{ position: 'relative', height: '420px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 25px rgba(0,0,0,0.1)' }}>
               <img src="/technical_service.png" alt="Technical & Technology Services Solutions" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2.5rem 2rem', background: 'linear-gradient(to top, rgba(22, 75, 45, 0.95) 0%, rgba(22, 75, 45, 0.8) 50%, transparent 100%)', textAlign: 'left', color: 'white' }}>
+              <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2.5rem 2rem', background: 'linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.75) 50%, transparent 100%)', textAlign: 'left', color: 'white' }}>
                 <h3 style={{ fontSize: '1.8rem', marginBottom: '0.8rem', fontFamily: 'serif', fontWeight: '600', color: '#fff' }}>Technical Services</h3>
                 <p style={{ fontSize: '1rem', lineHeight: '1.5', opacity: 0.95 }}>
                   Preventive maintenance, HVAC, and energy management for peak infrastructure performance.
