@@ -11,7 +11,7 @@ function ContactUs() {
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <h1 style={{ fontSize: '4.5rem', marginBottom: 'var(--spacing-md)', color: 'white', textShadow: '0 4px 12px rgba(0,0,0,0.4)', lineHeight: 1.1 }}>
-            Contact <span style={{color: 'var(--color-accent)'}}>Us</span>
+            Contact <span style={{ color: 'var(--color-accent)' }}>Us</span>
           </h1>
           <h3 style={{ color: '#E8E2D2', fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto', fontWeight: 300, lineHeight: 1.6 }}>
             How can we help you?
@@ -23,12 +23,12 @@ function ContactUs() {
       <section className="section">
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
           <div className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
-            <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-md)' }}>Partner with the <span style={{color: 'var(--color-accent)'}}>Best</span>, Today!</h2>
+            <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-md)' }}>Partner with the <span style={{ color: 'var(--color-accent)' }}>Best</span>, Today!</h2>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: 1.8 }}>
               We look forward to hearing from you to better understand how we can partner with you to drive your business growth and success.
             </p>
           </div>
-            
+
           <form className="glass-panel contact-form" style={{ padding: 'var(--spacing-3xl)', borderRadius: 'var(--radius-xl)', display: 'flex', flexDirection: 'column', gap: 'var(--spacing-lg)' }}>
             <div className="flex gap-lg">
               <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
@@ -40,7 +40,7 @@ function ContactUs() {
                 <input type="email" placeholder="Business Email" style={{ padding: '1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--color-border)', backgroundColor: 'var(--color-bg)' }} />
               </div>
             </div>
-            
+
             <div className="flex gap-lg">
               <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
                 <label style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: '0.5rem' }}>Phone*</label>
@@ -79,21 +79,21 @@ function ContactUs() {
       <section className="section section-bg-alt">
         <div className="container">
           <div className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
-            <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-sm)', color: 'var(--color-primary-dark)' }}>Our <i style={{color: 'var(--color-accent)', fontWeight: 400}}>Offices</i></h2>
+            <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-sm)', color: 'var(--color-primary-dark)' }}>Our <i style={{ color: 'var(--color-accent)', fontWeight: 400 }}>Offices</i></h2>
             <div style={{ width: '80px', height: '4px', backgroundColor: 'var(--color-accent)', margin: '0 auto' }}></div>
           </div>
-          
+
           <div className="grid-3" style={{ gap: 'var(--spacing-xl)' }}>
             <div className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> India Office
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
-                Catalyst Service Solutions Partners Private Limited<br/><br/>
+                Catalyst Service Solutions Partners Private Limited<br /><br />
                 401/402, Yash Tower, Opp. D.A.V Public School, Aundh, Pune – 411007
               </p>
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: 'var(--spacing-xs)' }}>Phone: +91 20 4850 4000</div>
+
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
             </div>
@@ -103,11 +103,11 @@ function ContactUs() {
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> Singapore Office
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
-                Comprehensive Support Services Pte. Ltd<br/><br/>
+                Comprehensive Support Services Pte. Ltd<br /><br />
                 12 Woodlands Square, #02-75, Woods Square Tower 1, Singapore – 737715
               </p>
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: 'var(--spacing-xs)' }}>Phone: +91 84118 85600</div>
+
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
             </div>
@@ -117,12 +117,13 @@ function ContactUs() {
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> Middle East
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
-                Catalyst Catering Services LLC (CCS)<br/><br/>
-                DIP -2,<br/>
-                Dubai, UAE
+                Catalyst Catering Services LLC (CCS)<br /><br />
+                Dubai Invenstments Park (DIP-2)<br />
+                elegant industries complex <br />
+                Dubai
               </p>
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: 'var(--spacing-xs)' }}>Phone: +91 84118 85600</div>
+
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: info@catalystgroupme.com</div>
               </div>
             </div>

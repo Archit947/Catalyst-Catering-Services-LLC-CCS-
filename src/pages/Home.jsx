@@ -212,12 +212,13 @@ function Home() {
           <h2 style={{ color: 'white', marginBottom: 'var(--spacing-sm)', fontSize: '2.5rem' }}>World-Class Domain Expertise</h2>
           <p style={{ color: '#E8E2D2', marginBottom: 'var(--spacing-3xl)', fontSize: '1.1rem' }}>Constantly adapting to elite market needs and innovating luxury solutions.</p>
 
-          <div className="flex justify-between stats-row" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div className="flex justify-between stats-row" style={{ maxWidth: '1200px', margin: '0 auto' }}>
             {[
-              { num: '300M', label: 'REVENUE' },
-              { num: '50K+', label: 'MEALS SERVED' },
-              { num: '120+', label: 'GLOBAL SITES' },
-              { num: '5K+', label: 'EMPLOYEES' }
+              { num: '4150M', label: 'REVENUE' },
+              { num: '2Lakh +', label: 'MEALS SERVED PER DAY' },
+              { num: '100+', label: 'GLOBAL SITES' },
+              { num: '5K+', label: 'EMPLOYEES' },
+              { num: '75M+ sq.ft', label: 'Operational' },
             ].map((stat, idx) => (
               <div key={idx}>
                 <div style={{ fontSize: '3.5rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', lineHeight: 1.2 }}>{stat.num}</div>
@@ -246,7 +247,7 @@ function Home() {
                 401/402, Yash Tower, Opp. D.A.V Public School, Aundh, Pune – 411007
               </p>
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: 'var(--spacing-xs)' }}>Phone: +91 20 4850 4000</div>
+
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
             </div>
@@ -260,7 +261,7 @@ function Home() {
                 12 Woodlands Square, #02-75, Woods Square Tower 1, Singapore – 737715
               </p>
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: 'var(--spacing-xs)' }}>Phone: +91 84118 85600</div>
+
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
             </div>
@@ -271,11 +272,12 @@ function Home() {
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
                 Catalyst Catering Services LLC (CCS)<br /><br />
-                DIP -2,<br />
-                Dubai, UAE
+                Dubai Invenstments Park (DIP-2)<br />
+                elegant industries complex <br />
+                Dubai<br />
               </p>
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: 'var(--spacing-xs)' }}>Phone: +91 84118 85600</div>
+
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: info@catalystgroupme.com</div>
               </div>
             </div>

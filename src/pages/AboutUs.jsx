@@ -11,10 +11,10 @@ function AboutUs() {
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <h1 style={{ fontSize: '4.5rem', marginBottom: 'var(--spacing-md)', color: 'white', textShadow: '0 4px 12px rgba(0,0,0,0.4)', lineHeight: 1.1 }}>
-            About <span style={{color: 'var(--color-accent)'}}>Us</span>
+            About <span style={{ color: 'var(--color-accent)' }}>Us</span>
           </h1>
           <h3 style={{ color: '#E8E2D2', fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto', fontWeight: 300, lineHeight: 1.6 }}>
-            Advancing towards a <i style={{color: 'var(--color-accent)'}}>Promising</i> future by evaluating our actions and <i style={{color: 'var(--color-accent)'}}>Careful</i> planning
+            Advancing towards a <i style={{ color: 'var(--color-accent)' }}>Promising</i> future by evaluating our actions and <i style={{ color: 'var(--color-accent)' }}>Careful</i> planning
           </h3>
         </div>
       </section>
@@ -35,13 +35,13 @@ function AboutUs() {
       <section className="section section-bg-alt">
         <div className="container flex gap-2xl section-responsive" style={{ columnGap: 'var(--spacing-3xl)' }}>
           <div className="hover-card hover-card-border" style={{ flex: '1', padding: 'var(--spacing-3xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-xl)' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: 'var(--spacing-lg)', color: 'var(--color-primary-dark)' }}>Our <span style={{color: 'var(--color-accent)'}}>Vision</span></h2>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: 'var(--spacing-lg)', color: 'var(--color-primary-dark)' }}>Our <span style={{ color: 'var(--color-accent)' }}>Vision</span></h2>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: 1.8 }}>
               To be the most trusted and preferred partner in the UAE for catering and integrated facility management services, delivering innovative, sustainable, and high-quality solutions that enhance client experience and quality of life.
             </p>
           </div>
           <div className="hover-card hover-card-border" style={{ flex: '1', padding: 'var(--spacing-3xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-xl)' }}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: 'var(--spacing-lg)', color: 'var(--color-primary-dark)' }}>Our <span style={{color: 'var(--color-accent)'}}>Mission</span></h2>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: 'var(--spacing-lg)', color: 'var(--color-primary-dark)' }}>Our <span style={{ color: 'var(--color-accent)' }}>Mission</span></h2>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: 1.8 }}>
               To deliver high-quality catering and integrated facility management services through operational excellence, digital innovation, and sustainable practices, while building long-term, trusted partnerships with our clients.
             </p>
@@ -53,21 +53,20 @@ function AboutUs() {
       <section className="section section-bg-alt">
         <div className="container">
           <div className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
-            <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-sm)', color: 'var(--color-primary-dark)' }}>Our <i style={{color: 'var(--color-accent)', fontWeight: 400}}>Offices</i></h2>
+            <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-sm)', color: 'var(--color-primary-dark)' }}>Our <i style={{ color: 'var(--color-accent)', fontWeight: 400 }}>Offices</i></h2>
             <div style={{ width: '80px', height: '4px', backgroundColor: 'var(--color-accent)', margin: '0 auto' }}></div>
           </div>
-          
+
           <div className="grid-3" style={{ gap: 'var(--spacing-xl)' }}>
             <div className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> India Office
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
-                Catalyst Service Solutions Partners Private Limited<br/><br/>
+                Catalyst Service Solutions Partners Private Limited<br /><br />
                 401/402, Yash Tower, Opp. D.A.V Public School, Aundh, Pune – 411007
               </p>
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: 'var(--spacing-xs)' }}>Phone: +91 20 4850 4000</div>
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
             </div>
@@ -77,11 +76,10 @@ function AboutUs() {
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> Singapore Office
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
-                Comprehensive Support Services Pte. Ltd<br/><br/>
+                Comprehensive Support Services Pte. Ltd<br /><br />
                 12 Woodlands Square, #02-75, Woods Square Tower 1, Singapore – 737715
               </p>
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: 'var(--spacing-xs)' }}>Phone: +91 84118 85600</div>
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
             </div>
@@ -91,12 +89,13 @@ function AboutUs() {
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> Middle East
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
-                Catalyst Catering Services LLC (CCS)<br/><br/>
-                DIP -2,<br/>
-                Dubai, UAE
+                Catalyst Catering Services LLC (CCS)<br /><br />
+                Dubai Invenstments Park (DIP-2)<br />
+                elegant industries complex <br />
+                Dubai<br />
               </p>
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600, marginBottom: 'var(--spacing-xs)' }}>Phone: +91 84118 85600</div>
+
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: info@catalystgroupme.com</div>
               </div>
             </div>
