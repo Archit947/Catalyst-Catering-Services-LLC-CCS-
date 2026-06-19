@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
+import { MapPin, Phone, Mail } from 'lucide-react';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
@@ -137,66 +139,90 @@ function App() {
       </Routes>
 
       {/* FOOTER */}
-      <footer className="site-footer" style={{ padding: 'var(--spacing-3xl) 0 var(--spacing-xl)', backgroundColor: 'var(--color-bg)' }}>
-        <div className="container footer-inner footer-desktop">
-          <div className="flex justify-between items-center footer-top" style={{ borderBottom: '1px solid var(--color-border)', paddingBottom: 'var(--spacing-2xl)', marginBottom: 'var(--spacing-xl)' }}>
-            <div className="logo" style={{ display: 'flex', alignItems: 'center' }}>
-              <img src="/logo.webp" alt="Catalyst" style={{ height: '50px' }} />
-            </div>
-            <div className="flex gap-lg" style={{fontWeight: 500, fontSize: '0.9rem', color: 'var(--color-text-muted)'}}>
-              <Link to="/">Solutions</Link>
-              <Link to="/about-us">About Us</Link>
-              <Link to="/contact-us">Contact Us</Link>
+      <footer className="site-footer" style={{ backgroundColor: '#153351', color: '#ffffff', paddingTop: 'var(--spacing-4xl)', paddingBottom: 'var(--spacing-xl)', fontFamily: 'var(--font-sans)' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 'var(--spacing-2xl)', marginBottom: 'var(--spacing-4xl)' }}>
+          {/* Column 1: Brand */}
+          <div>
+            <Link to="/" style={{ display: 'inline-block', marginBottom: 'var(--spacing-lg)' }}>
+              <img src="/logo.webp" alt="Catalyst" style={{ height: '50px', filter: 'brightness(0) invert(1)' }} />
+            </Link>
+            <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: 'var(--spacing-lg)' }}>
+              Fueling productivity with fresh, nutritious meals delivered on time, every day. Your trusted partner for corporate and institutional meal services.
+            </p>
+            <div className="flex gap-sm">
+              {[
+                { icon: FaFacebook, label: 'Facebook' },
+                { icon: FaTwitter, label: 'Twitter' },
+                { icon: FaInstagram, label: 'Instagram' },
+                { icon: FaLinkedin, label: 'LinkedIn' },
+                { icon: FaYoutube, label: 'YouTube' }
+              ].map((item, i) => (
+                <a key={i} href="#" aria-label={item.label} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', backgroundColor: 'var(--color-accent)', color: '#153351', borderRadius: '50%', transition: 'transform 0.3s, background-color 0.3s' }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.backgroundColor = 'var(--color-accent-light)'; }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.backgroundColor = 'var(--color-accent)'; }}>
+                  <item.icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
-          <div className="flex justify-between items-center footer-bottom" style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
-            <div>© 2026 Catalyst Catering Services LLC (CCS). All rights reserved.</div>
-            <div className="flex gap-md">
-              <a href="#privacy">Privacy Policy</a>
-              <a href="#terms">Terms of Service</a>
+
+          {/* Column 2: Quick Links */}
+          <div>
+            <h4 style={{ color: 'white', fontSize: '1.25rem', marginBottom: 'var(--spacing-lg)', fontFamily: 'var(--font-sans)', fontWeight: 700 }}>Quick Links</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <Link to="/" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>Home</Link>
+              <Link to="/about-us" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>About Us</Link>
+              <Link to="/services" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>Services</Link>
+              <Link to="/why-choose-us" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>Why Choose Us</Link>
+              <Link to="/contact-us" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>Contact</Link>
+            </div>
+          </div>
+
+          {/* Column 3: Our Services */}
+          <div>
+            <h4 style={{ color: 'white', fontSize: '1.25rem', marginBottom: 'var(--spacing-lg)', fontFamily: 'var(--font-sans)', fontWeight: 700 }}>Our Services</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              <Link to="/services/cafeteria-food-court" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>Cafeteria & Food Court</Link>
+              <Link to="/services/industrial-canteen" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>Industrial Canteen</Link>
+              <Link to="/services/school-cafeteria" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>School Cafeteria</Link>
+              <Link to="/services/inhouse-patient-dining" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>Inhouse Patient Dining</Link>
+              <Link to="/services/events-conferences" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>Events & Conferences</Link>
+              <Link to="/services/guest-house-management" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}>Guest House Management</Link>
+            </div>
+          </div>
+
+          {/* Column 4: Contact Info */}
+          <div>
+            <h4 style={{ color: 'white', fontSize: '1.25rem', marginBottom: 'var(--spacing-lg)', fontFamily: 'var(--font-sans)', fontWeight: 700 }}>Contact Info</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                <MapPin size={20} color="var(--color-accent)" style={{ marginTop: '2px', flexShrink: 0 }} />
+                <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: 1.5 }}>
+                  Dubai Investments Park (DIP-2)<br/>
+                  Elegant Industries Complex<br/>
+                  Dubai, UAE
+                </span>
+              </div>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <Phone size={18} color="var(--color-accent)" style={{ flexShrink: 0 }} />
+                <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem' }}>+971 45 579 325</span>
+              </div>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <Mail size={18} color="var(--color-accent)" style={{ flexShrink: 0 }} />
+                <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem' }}>info@catalystgroupme.com</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="footer-mobile">
-          <div className="footer-mobile-header">
-            <img className="footer-mobile-logo" src="/logo.webp" alt="Catalyst" />
-          </div>
-
-          <div className="footer-mobile-links">
-            <Link to="/">Home</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/facility-management">Facility Management</Link>
-            <Link to="/about-us">About Us</Link>
-            <Link to="/contact-us">Contact Us</Link>
-          </div>
-
-          <div className="footer-mobile-contact">
-            <div className="footer-contact-item">
-              <span className="footer-contact-icon">✉</span>
-              <span>sales@catalystsolutions.eco</span>
+        {/* Footer Bottom / Copyright */}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: 'var(--spacing-xl)' }}>
+          <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 'var(--spacing-md)' }}>
+            <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', margin: 0 }}>
+              © 2026 Catalyst Catering Services LLC (CCS). All rights reserved.
+            </p>
+            <div style={{ display: 'flex', gap: 'var(--spacing-lg)' }}>
+              <Link to="#" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'white'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}>Privacy Policy</Link>
+              <Link to="#" style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'white'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}>Terms of Service</Link>
             </div>
-            <div className="footer-contact-item">
-              <span className="footer-contact-icon">☎</span>
-              <span>+91 20 4850 4000</span>
-            </div>
-          </div>
-
-          <div className="footer-mobile-bottom">
-            <div className="footer-mobile-social">in</div>
-            <button
-              type="button"
-              className="footer-mobile-top"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              aria-label="Back to top"
-            >
-              ↑
-            </button>
-          </div>
-
-          <div className="footer-mobile-legal">
-            <div>Catalyst Service Solutions Partners Pvt. Ltd. (CSSPPL)</div>
-            <div>© 2026 All rights reserved.</div>
           </div>
         </div>
       </footer>
