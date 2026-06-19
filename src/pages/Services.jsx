@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
 import serviceImage2 from '../assets/2.png';
 import serviceImage3 from '../assets/3.png';
 import serviceImage4 from '../assets/4.png';
@@ -26,10 +27,10 @@ function Services() {
       {/* OUR APPROACH */}
       <section className="section section-bg-alt">
         <div className="container flex gap-2xl section-responsive" style={{ columnGap: 'var(--spacing-3xl)' }}>
-          <div style={{ flex: '1', position: 'relative' }}>
+          <ScrollReveal direction="right" style={{ flex: '1', position: 'relative' }}>
              <img src="/salad_plating.png" alt="Our Approach" style={{ borderRadius: 'var(--radius-xl)', width: '100%', border: '1px solid var(--color-accent)' }} />
-          </div>
-          <div style={{ flex: '1' }}>
+          </ScrollReveal>
+          <ScrollReveal direction="left" style={{ flex: '1' }}>
             <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-xl)' }}>Our <span style={{color: 'var(--color-accent)'}}>Approach</span></h2>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: 1.8, marginBottom: 'var(--spacing-lg)' }}>
               We deliver comprehensive, world-class food service solutions across the UAE, driven by a deep commitment to culinary excellence and sustainability. 
@@ -46,7 +47,7 @@ function Services() {
                 <span style={{ color: 'var(--color-accent)', fontSize: '1.5rem' }}>✧</span> Customized Culinary Solutions
               </li>
             </ul>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -60,53 +61,65 @@ function Services() {
           
           <div className="grid-3" style={{ gap: 'var(--spacing-lg)' }}>
             
-            <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src="/food_court.png" alt="Cafeteria & Food Court" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Cafeteria & Food Court</h3>
-                <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Vibrant, diverse, and high-quality food experiences for corporate spaces.</p>
-              </div>
-            </div>
+            <ScrollReveal delay={0.1} direction="up">
+              <Link to="/services/cafeteria-food-court" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
+                <img src="/food_court.png" alt="Cafeteria & Food Court" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
+                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Cafeteria & Food Court</h3>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Vibrant, diverse, and high-quality food experiences for corporate spaces.</p>
+                </div>
+              </Link>
+            </ScrollReveal>
 
-            <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src={serviceImage3} alt="Industrial Canteen" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Industrial Canteen</h3>
-                <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Nutritious, large-scale catering designed for workforce energy and well-being.</p>
-              </div>
-            </div>
+            <ScrollReveal delay={0.2} direction="up">
+              <Link to="/services/industrial-canteen" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
+                <img src={serviceImage3} alt="Industrial Canteen" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
+                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Industrial Canteen</h3>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Nutritious, large-scale catering designed for workforce energy and well-being.</p>
+                </div>
+              </Link>
+            </ScrollReveal>
 
-            <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src={serviceImage2} alt="School Cafeteria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>School Cafeteria</h3>
-                <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Wholesome, balanced, and appealing meals to foster healthy eating habits.</p>
-              </div>
-            </div>
+            <ScrollReveal delay={0.3} direction="up">
+              <Link to="/services/school-cafeteria" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
+                <img src={serviceImage2} alt="School Cafeteria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
+                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>School Cafeteria</h3>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Wholesome, balanced, and appealing meals to foster healthy eating habits.</p>
+                </div>
+              </Link>
+            </ScrollReveal>
 
-            <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src="/clinical_nutrition.png" alt="Inhouse Patient Dining" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Inhouse Patient Dining</h3>
-                <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Specialized diet care focused meticulously on patient recovery.</p>
-              </div>
-            </div>
+            <ScrollReveal delay={0.4} direction="up">
+              <Link to="/services/inhouse-patient-dining" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
+                <img src="/clinical_nutrition.png" alt="Inhouse Patient Dining" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
+                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Inhouse Patient Dining</h3>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Specialized diet care focused meticulously on patient recovery.</p>
+                </div>
+              </Link>
+            </ScrollReveal>
 
-            <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src="/events_catering.png" alt="Events and Conferences" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Events & Conferences</h3>
-                <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Elegant, premium catering solutions that leave a lasting impression.</p>
-              </div>
-            </div>
+            <ScrollReveal delay={0.5} direction="up">
+              <Link to="/services/events-conferences" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
+                <img src="/events_catering.png" alt="Events and Conferences" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
+                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Events & Conferences</h3>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Elegant, premium catering solutions that leave a lasting impression.</p>
+                </div>
+              </Link>
+            </ScrollReveal>
 
-            <div className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px' }}>
-              <img src={serviceImage4} alt="Guest house Management" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Guest House Management</h3>
-                <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Luxurious hospitality and dining services for corporate lodging.</p>
-              </div>
-            </div>
+            <ScrollReveal delay={0.6} direction="up">
+              <Link to="/services/guest-house-management" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
+                <img src={serviceImage4} alt="Guest house Management" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
+                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Guest House Management</h3>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Luxurious hospitality and dining services for corporate lodging.</p>
+                </div>
+              </Link>
+            </ScrollReveal>
 
           </div>
         </div>

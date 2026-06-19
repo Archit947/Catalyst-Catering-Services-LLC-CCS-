@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
 
 function ContactUs() {
   return (
@@ -21,7 +22,7 @@ function ContactUs() {
 
       {/* CONTACT FORM */}
       <section className="section">
-        <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <ScrollReveal direction="up" className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
           <div className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
             <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-md)' }}>Partner with the <span style={{ color: 'var(--color-accent)' }}>Best</span>, Today!</h2>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: 1.8 }}>
@@ -72,19 +73,19 @@ function ContactUs() {
 
             <button type="button" className="btn btn-primary" style={{ alignSelf: 'center', marginTop: 'var(--spacing-md)', padding: '1rem 3rem' }}>Submit Request</button>
           </form>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* OFFICES SECTION */}
       <section className="section section-bg-alt">
         <div className="container">
-          <div className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
+          <ScrollReveal direction="up" className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
             <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-sm)', color: 'var(--color-primary-dark)' }}>Our <i style={{ color: 'var(--color-accent)', fontWeight: 400 }}>Offices</i></h2>
             <div style={{ width: '80px', height: '4px', backgroundColor: 'var(--color-accent)', margin: '0 auto' }}></div>
-          </div>
+          </ScrollReveal>
 
           <div className="grid-3" style={{ gap: 'var(--spacing-xl)' }}>
-            <div className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
+            <ScrollReveal delay={0.1} direction="up" className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> India Office
               </h4>
@@ -96,9 +97,9 @@ function ContactUs() {
 
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
+            <ScrollReveal delay={0.2} direction="up" className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> Singapore Office
               </h4>
@@ -110,9 +111,9 @@ function ContactUs() {
 
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
+            <ScrollReveal delay={0.3} direction="up" className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> Middle East
               </h4>
@@ -126,7 +127,7 @@ function ContactUs() {
 
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: info@catalystgroupme.com</div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

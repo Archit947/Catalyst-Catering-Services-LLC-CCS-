@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollReveal } from '../components/ui/ScrollReveal';
 
 function AboutUs() {
   return (
@@ -21,44 +22,44 @@ function AboutUs() {
 
       {/* INTRO SECTION */}
       <section className="section">
-        <div className="container" style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
+        <ScrollReveal direction="up" className="container" style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', lineHeight: 1.8, marginBottom: 'var(--spacing-lg)' }}>
             <strong>Catalyst Catering Services LLC (CCS)</strong> is a leading provider of integrated catering and facility management solutions in the UAE, backed by a strong global legacy and proven expertise across diverse industries. Catalyst is part of Comprehensive Support Services Pvt. Ltd. (CSS Group), a well-established international organization with a strong presence across the Middle East, Asia, and Africa.
           </p>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', lineHeight: 1.8 }}>
             As part of this global network, Catalyst delivers end-to-end food service and support solutions, combining operational excellence, advanced technology, and deep industry knowledge. With extensive experience in managing large-scale industrial catering, corporate dining, and remote site operations, we are committed to enhancing the quality of life for our clients through safe, nutritious, and high-quality services.
           </p>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* VISION & MISSION */}
       <section className="section section-bg-alt">
         <div className="container flex gap-2xl section-responsive" style={{ columnGap: 'var(--spacing-3xl)' }}>
-          <div className="hover-card hover-card-border" style={{ flex: '1', padding: 'var(--spacing-3xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-xl)' }}>
+          <ScrollReveal direction="right" className="hover-card hover-card-border" style={{ flex: '1', padding: 'var(--spacing-3xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-xl)' }}>
             <h2 style={{ fontSize: '2.5rem', marginBottom: 'var(--spacing-lg)', color: 'var(--color-primary-dark)' }}>Our <span style={{ color: 'var(--color-accent)' }}>Vision</span></h2>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: 1.8 }}>
               To be the most trusted and preferred partner in the UAE for catering and integrated facility management services, delivering innovative, sustainable, and high-quality solutions that enhance client experience and quality of life.
             </p>
-          </div>
-          <div className="hover-card hover-card-border" style={{ flex: '1', padding: 'var(--spacing-3xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-xl)' }}>
+          </ScrollReveal>
+          <ScrollReveal direction="left" className="hover-card hover-card-border" style={{ flex: '1', padding: 'var(--spacing-3xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-xl)' }}>
             <h2 style={{ fontSize: '2.5rem', marginBottom: 'var(--spacing-lg)', color: 'var(--color-primary-dark)' }}>Our <span style={{ color: 'var(--color-accent)' }}>Mission</span></h2>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: 1.8 }}>
               To deliver high-quality catering and integrated facility management services through operational excellence, digital innovation, and sustainable practices, while building long-term, trusted partnerships with our clients.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* OFFICES SECTION */}
       <section className="section section-bg-alt">
         <div className="container">
-          <div className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
+          <ScrollReveal direction="up" className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
             <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-sm)', color: 'var(--color-primary-dark)' }}>Our <i style={{ color: 'var(--color-accent)', fontWeight: 400 }}>Offices</i></h2>
             <div style={{ width: '80px', height: '4px', backgroundColor: 'var(--color-accent)', margin: '0 auto' }}></div>
-          </div>
+          </ScrollReveal>
 
           <div className="grid-3" style={{ gap: 'var(--spacing-xl)' }}>
-            <div className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
+            <ScrollReveal delay={0.1} direction="up" className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> India Office
               </h4>
@@ -69,9 +70,9 @@ function AboutUs() {
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
+            <ScrollReveal delay={0.2} direction="up" className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> Singapore Office
               </h4>
@@ -82,9 +83,9 @@ function AboutUs() {
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
+            <ScrollReveal delay={0.3} direction="up" className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> Middle East
               </h4>
@@ -98,7 +99,7 @@ function AboutUs() {
 
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: info@catalystgroupme.com</div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

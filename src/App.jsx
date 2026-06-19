@@ -5,6 +5,8 @@ import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import Services from './pages/Services';
 import FacilityManagement from './pages/FacilityManagement';
+import WhyChooseUs from './pages/WhyChooseUs';
+import ServiceDetail from './pages/ServiceDetail';
 import ScrollToTop from './ScrollToTop';
 
 function App() {
@@ -71,6 +73,7 @@ function App() {
             </div>
 
             <Link to="/about-us" style={{textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined}}>About Us</Link>
+            <Link to="/why-choose-us" style={{textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined}}>Why Choose Us</Link>
           </nav>
           <Link
             to="/contact-us"
@@ -114,6 +117,7 @@ function App() {
             <Link to="/services">Food Services</Link>
             <Link to="/facility-management">Facility Management</Link>
             <Link to="/about-us">About Us</Link>
+            <Link to="/why-choose-us">Why Choose Us</Link>
             <Link to="/contact-us">Contact Us</Link>
             <Link to="/contact-us" className="btn btn-primary">Contact Us</Link>
           </nav>
@@ -126,7 +130,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/why-choose-us" element={<WhyChooseUs />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/:slug" element={<ServiceDetail />} />
         <Route path="/facility-management" element={<FacilityManagement />} />
       </Routes>
 
