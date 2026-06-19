@@ -49,6 +49,20 @@
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+#root, .app {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -722,7 +736,7 @@ button {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   .hero-title {
     font-size: 2.75rem;
   }
@@ -751,7 +765,7 @@ button {
   z-index: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero-overlay {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.50) 100%);
   }

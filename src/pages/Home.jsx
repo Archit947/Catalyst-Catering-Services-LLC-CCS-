@@ -90,7 +90,7 @@ function Home() {
                 We deliver comprehensive food and facility management solutions across the UAE, driven by a deep commitment to excellence and sustainability.
               </p>
               <div className="flex gap-md">
-                <Link to="/services" className="btn btn-primary hero-cta" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>Explore Services</Link>
+                <Link to="/services" className="btn btn-primary hero-cta" style={{ padding: '1rem 3rem', fontSize: '1.1rem', marginBottom: '10px' }}>Explore Services</Link>
               </div>
             </div>
           </ScrollReveal>
