@@ -61,22 +61,10 @@ function Home() {
           }}
         />
         {/* Dark overlay for readability */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to right, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.50) 50%, rgba(0,0,0,0.20) 100%)',
-          zIndex: 1,
-        }} />
+        <div className="hero-overlay" />
 
         {/* Hero content — left-aligned */}
-        <div style={{
-          position: 'relative',
-          zIndex: 2,
-          marginLeft: 0,
-          width: '55%',
-          paddingLeft: 'var(--spacing-3xl)',
-          paddingRight: 'var(--spacing-xl)',
-        }}>
+        <div className="hero-text-container">
           <ScrollReveal direction="up" duration={0.8}>
             <div style={{ maxWidth: '800px' }}>
               <div style={{
@@ -94,11 +82,11 @@ function Home() {
               }}>
                 Integrated Solutions
               </div>
-              <h1 style={{ fontSize: '4.5rem', marginBottom: 'var(--spacing-md)', color: '#ffffff', lineHeight: 1.1 }}>
+              <h1 className="hero-title">
                 Elevate your business with{' '}
                 <span style={{ color: 'var(--color-accent)', fontStyle: 'italic', display: 'inline-block' }}>world-class</span>{' '}services.
               </h1>
-              <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.25rem', marginBottom: 'var(--spacing-xl)', maxWidth: '600px', lineHeight: 1.7, fontWeight: 300 }}>
+              <p className="hero-subtitle">
                 We deliver comprehensive food and facility management solutions across the UAE, driven by a deep commitment to excellence and sustainability.
               </p>
               <div className="flex gap-md">
@@ -157,7 +145,8 @@ function Home() {
                 <img src="/food_court.png" alt="Cafeteria & Food Court" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                   <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Cafeteria & Food Court</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Vibrant, diverse, and high-quality food experiences for corporate spaces.</p>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Vibrant, diverse, and high-quality food experiences for corporate spaces.</p>
+                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
                 </div>
               </Link>
             </ScrollReveal>
@@ -167,7 +156,8 @@ function Home() {
                 <img src={serviceImage3} alt="Industrial Canteen" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                   <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Industrial Canteen</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Nutritious, large-scale catering designed for workforce energy and well-being.</p>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Nutritious, large-scale catering designed for workforce energy and well-being.</p>
+                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
                 </div>
               </Link>
             </ScrollReveal>
@@ -177,7 +167,8 @@ function Home() {
                 <img src={serviceImage2} alt="School Cafeteria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                   <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>School Cafeteria</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Wholesome, balanced, and appealing meals to foster healthy eating habits.</p>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Wholesome, balanced, and appealing meals to foster healthy eating habits.</p>
+                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
                 </div>
               </Link>
             </ScrollReveal>
@@ -187,7 +178,8 @@ function Home() {
                 <img src="/clinical_nutrition.png" alt="Inhouse Patient Dining" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                   <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Inhouse Patient Dining</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Specialized diet care focused meticulously on patient recovery.</p>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Specialized diet care focused meticulously on patient recovery.</p>
+                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
                 </div>
               </Link>
             </ScrollReveal>
@@ -197,7 +189,8 @@ function Home() {
                 <img src="/events_catering.png" alt="Events and Conferences" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                   <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Events & Conferences</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Elegant, premium catering solutions that leave a lasting impression.</p>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Elegant, premium catering solutions that leave a lasting impression.</p>
+                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
                 </div>
               </Link>
             </ScrollReveal>
@@ -207,7 +200,8 @@ function Home() {
                 <img src={serviceImage4} alt="Guest house Management" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
                   <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Guest House Management</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5 }}>Luxurious hospitality and dining services for corporate lodging.</p>
+                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Luxurious hospitality and dining services for corporate lodging.</p>
+                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
                 </div>
               </Link>
             </ScrollReveal>
@@ -268,7 +262,7 @@ function Home() {
               ))}
             </div>
           </ScrollReveal>
-          <ScrollReveal direction="left" style={{ flex: '1', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '600px' }}>
+          <ScrollReveal direction="left" className="min-h-600" style={{ flex: '1', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <VerticalImageStack />
           </ScrollReveal>
         </div>

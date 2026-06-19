@@ -101,7 +101,7 @@ function ServiceDetail() {
   return (
     <main>
       {/* HERO SECTION */}
-      <section className="hero-section" style={{ position: 'relative', minHeight: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '80px', width: '100vw', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw', overflow: 'hidden' }}>
+      <section className="hero-section" style={{ position: 'relative', minHeight: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '80px', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, zIndex: -1, width: '100%', height: '100%' }}>
           {typeof service.image === 'string' ? (
              <img src={service.image} alt={service.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />

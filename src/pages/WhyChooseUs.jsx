@@ -10,14 +10,14 @@ function WhyChooseUs() {
   return (
     <main>
       {/* HERO SECTION */}
-      <section className="hero-section" style={{ position: 'relative', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '80px', width: '100vw', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw', overflow: 'hidden' }}>
+      <section className="hero-section" style={{ position: 'relative', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '80px', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, zIndex: -1, width: '100%', height: '100%' }}>
           <img src="/7.png" alt="Why Choose Us" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.4))' }}></div>
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center', width: '100%' }}>
           <ScrollReveal direction="up">
-            <h1 style={{ fontSize: '4.5rem', marginBottom: 'var(--spacing-md)', color: 'white', textShadow: '0 4px 12px rgba(0,0,0,0.5)', lineHeight: 1.1 }}>
+            <h1 className="hero-title" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
               Why Choose <span style={{color: 'var(--color-accent)'}}>Catalyst?</span>
             </h1>
             <p style={{ color: '#E8E2D2', fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto', fontWeight: 300, lineHeight: 1.6 }}>

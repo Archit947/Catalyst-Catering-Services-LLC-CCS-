@@ -11,7 +11,7 @@ function AboutUs() {
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%)' }}></div>
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
-          <h1 style={{ fontSize: '4.5rem', marginBottom: 'var(--spacing-md)', color: 'white', textShadow: '0 4px 12px rgba(0,0,0,0.4)', lineHeight: 1.1 }}>
+          <h1 className="hero-title" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.4)' }}>
             About <span style={{ color: 'var(--color-accent)' }}>Us</span>
           </h1>
           <h3 style={{ color: '#E8E2D2', fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto', fontWeight: 300, lineHeight: 1.6 }}>

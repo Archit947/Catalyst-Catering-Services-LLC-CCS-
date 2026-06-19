@@ -202,10 +202,6 @@ function App() {
                 </span>
               </div>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-                <Phone size={18} color="var(--color-accent)" style={{ flexShrink: 0 }} />
-                <span style={{ color: 'rgba(0, 0, 0, 0.8)', fontSize: '0.95rem' }}>+971 45 579 325</span>
-              </div>
-              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <Mail size={18} color="var(--color-accent)" style={{ flexShrink: 0 }} />
                 <span style={{ color: 'rgba(0, 0, 0, 0.8)', fontSize: '0.95rem' }}>info@catalystgroupme.com</span>
               </div>
