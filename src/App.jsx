@@ -9,6 +9,8 @@ import Services from './pages/Services';
 import FacilityManagement from './pages/FacilityManagement';
 import WhyChooseUs from './pages/WhyChooseUs';
 import ServiceDetail from './pages/ServiceDetail';
+import Gallery from './pages/Gallery';
+import Career from './pages/Career';
 import ScrollToTop from './ScrollToTop';
 
 function App() {
@@ -38,14 +40,25 @@ function App() {
       {/* HEADER */}
       <header style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-        padding: isTransparent ? 'var(--spacing-lg) 0' : 'var(--spacing-md) 0',
-        backgroundColor: isTransparent ? 'transparent' : 'rgba(255, 255, 255, 0.95)',
-        backdropFilter: isTransparent ? 'none' : 'blur(10px)',
-        borderBottom: isTransparent ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.05)',
-        transition: 'all 0.3s ease-in-out',
-        boxShadow: isTransparent ? 'none' : 'var(--shadow-sm)'
+        padding: '12px 20px',
+        background: 'transparent',
+        transition: 'padding 0.3s ease-in-out',
       }}>
-        <div className="container flex justify-between items-center app-header-inner">
+        <div className="app-header-inner" style={{
+          maxWidth: '1280px',
+          margin: '0 auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '10px 28px',
+          borderRadius: '50px',
+          backgroundColor: isTransparent ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.95)',
+          backdropFilter: 'blur(20px) saturate(160%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(160%)',
+          border: isTransparent ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(0,0,0,0.08)',
+          boxShadow: isTransparent ? '0 8px 32px rgba(0,0,0,0.2)' : '0 4px 24px rgba(0,0,0,0.1)',
+          transition: 'all 0.3s ease-in-out',
+        }}>
           <Link to="/" className="logo" style={{ display: 'flex', alignItems: 'center' }}>
             <img
               src="/logo.webp"
@@ -76,22 +89,33 @@ function App() {
 
             <Link to="/about-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>About Us</Link>
             <Link to="/why-choose-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Why Choose Us</Link>
+            <Link to="/gallery" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Gallery</Link>
+            <Link to="/career" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Career</Link>
+            <Link to="/contact-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Contact Us</Link>
           </nav>
-          <Link
-            to="/contact-us"
+          <a
+            href="/voucher.pdf"
+            download
             className="btn btn-primary"
             style={{
               padding: '0.6rem 1.5rem',
               fontSize: '0.9rem',
               fontWeight: 600,
               transition: 'all 0.3s',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              whiteSpace: 'nowrap',
               ...(isTransparent ? {
-                backgroundColor: 'transparent',
+                backgroundColor: 'rgba(255,255,255,0.15)',
                 border: '1.5px solid rgba(255,255,255,0.8)',
                 color: '#ffffff',
               } : {})
             }}
-          >Contact Us</Link>
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+           Download Brochure
+          </a>
           <button
             type="button"
             className="mobile-menu-button"
@@ -120,8 +144,10 @@ function App() {
             <Link to="/facility-management">Facility Management</Link>
             <Link to="/about-us">About Us</Link>
             <Link to="/why-choose-us">Why Choose Us</Link>
+            <Link to="/gallery">Gallery</Link>
+            <Link to="/career">Career</Link>
             <Link to="/contact-us">Contact Us</Link>
-            <Link to="/contact-us" className="btn btn-primary">Contact Us</Link>
+            <a href="/voucher.pdf" download className="btn btn-primary">Download Voucher</a>
           </nav>
         </div>
       </header>
@@ -136,6 +162,8 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/services/:slug" element={<ServiceDetail />} />
         <Route path="/facility-management" element={<FacilityManagement />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/career" element={<Career />} />
       </Routes>
 
       {/* FOOTER */}

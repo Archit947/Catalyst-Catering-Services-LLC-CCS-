@@ -44,7 +44,7 @@ function Home() {
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden',
-        paddingTop: '80px',
+        paddingTop: '90px',
       }}>
         {/* Background image */}
         <img
