@@ -91,8 +91,8 @@ function AboutUs() {
               </h4>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
                 Catalyst Catering Services LLC (CCS)<br /><br />
-                Dubai Invenstments Park (DIP-2)<br />
-                elegant industries complex <br />
+                Darwish Compound, Warehouse No.4,<br />
+                Building No: 3, DIP–2,<br />
                 Dubai<br />
               </p>
               <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
