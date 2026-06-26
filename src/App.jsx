@@ -196,9 +196,9 @@ function App() {
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                 <MapPin size={20} color="var(--color-accent)" style={{ marginTop: '2px', flexShrink: 0 }} />
                 <span style={{ color: 'rgba(0, 0, 0, 0.8)', fontSize: '0.95rem', lineHeight: 1.5 }}>
-                  Dubai Investments Park (DIP-2)<br />
-                  Elegant Industries Complex<br />
-                  Dubai, UAE
+                  Darwish Compound, Warehouse No.4,<br />
+                  Building No: 3, DIP–2,<br />
+                  Dubai<br />
                 </span>
               </div>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
