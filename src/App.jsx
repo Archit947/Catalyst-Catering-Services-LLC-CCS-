@@ -13,9 +13,158 @@ import Gallery from './pages/Gallery';
 import Career from './pages/Career';
 import ScrollToTop from './ScrollToTop';
 
+/* ── Brochure Gate Modal ─────────────────────────────────── */
+function BrochureModal({ onClose }) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const validate = () => {
+    const e = {};
+    if (!name.trim()) e.name = 'Please enter your name.';
+    if (!email.trim()) e.email = 'Please enter your email.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) e.email = 'Please enter a valid email.';
+    return e;
+  };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    const e = validate();
+    if (Object.keys(e).length) { setErrors(e); return; }
+    setErrors({});
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+      // Trigger download
+      const link = document.createElement('a');
+      link.href = '/voucher.pdf';
+      link.download = 'Catalyst-Brochure.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      setTimeout(onClose, 2500);
+    }, 800);
+  };
+
+  // Close on backdrop click
+  const handleBackdrop = (ev) => { if (ev.target === ev.currentTarget) onClose(); };
+
+  return (
+    <div
+      onClick={handleBackdrop}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 9999,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        background: 'rgba(0,0,0,0.55)',
+        backdropFilter: 'blur(6px)',
+        WebkitBackdropFilter: 'blur(6px)',
+        animation: 'brochureBackdropIn 0.25s ease',
+      }}
+    >
+      <style>{`
+        @keyframes brochureBackdropIn { from { opacity:0 } to { opacity:1 } }
+        @keyframes brochureModalIn { from { opacity:0; transform:translateY(30px) scale(0.96) } to { opacity:1; transform:translateY(0) scale(1) } }
+        .brochure-input { width:100%; padding:0.75rem 1rem; border-radius:10px; border:1.5px solid rgba(21,51,81,0.2); font-size:0.95rem; font-family:inherit; outline:none; transition:border-color 0.2s, box-shadow 0.2s; background:#f8fafc; color:#153351; }
+        .brochure-input:focus { border-color:var(--color-accent,#F5A623); box-shadow:0 0 0 3px rgba(245,166,35,0.18); background:#fff; }
+        .brochure-input.error { border-color:#e53e3e; }
+        .brochure-err { color:#e53e3e; font-size:0.8rem; margin-top:4px; }
+        .brochure-submit { width:100%; padding:0.85rem; border:none; border-radius:12px; background:linear-gradient(135deg,#153351,#1e4d7a); color:#fff; font-size:1rem; font-weight:700; font-family:inherit; cursor:pointer; transition:transform 0.2s, box-shadow 0.2s; }
+        .brochure-submit:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 6px 20px rgba(21,51,81,0.35); }
+        .brochure-submit:disabled { opacity:0.7; cursor:not-allowed; }
+      `}</style>
+      <div
+        style={{
+          background: '#fff',
+          borderRadius: '20px',
+          padding: '2.5rem 2rem',
+          width: '100%',
+          maxWidth: '440px',
+          margin: '1rem',
+          boxShadow: '0 24px 60px rgba(0,0,0,0.25)',
+          animation: 'brochureModalIn 0.35s cubic-bezier(0.34,1.56,0.64,1)',
+          position: 'relative',
+        }}
+      >
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          aria-label="Close"
+          style={{
+            position: 'absolute', top: '1rem', right: '1rem',
+            background: 'rgba(21,51,81,0.08)', border: 'none', borderRadius: '50%',
+            width: '32px', height: '32px', cursor: 'pointer', display: 'flex',
+            alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem', color: '#153351',
+            transition: 'background 0.2s',
+          }}
+          onMouseEnter={e => e.currentTarget.style.background='rgba(21,51,81,0.18)'}
+          onMouseLeave={e => e.currentTarget.style.background='rgba(21,51,81,0.08)'}
+        >×</button>
+
+        {submitted ? (
+          <div style={{ textAlign: 'center', padding: '1rem 0' }}>
+            <div style={{ fontSize: '3rem', marginBottom: '0.75rem' }}>🎉</div>
+            <h3 style={{ color: '#153351', fontSize: '1.4rem', fontWeight: 700, marginBottom: '0.5rem' }}>Download Started!</h3>
+            <p style={{ color: '#666', fontSize: '0.95rem' }}>Thank you, <strong>{name}</strong>! Your brochure download has begun.</p>
+          </div>
+        ) : (
+          <>
+            {/* Header */}
+            <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg,#153351,#1e4d7a)', marginBottom: '1rem' }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </div>
+              <h2 style={{ color: '#153351', fontSize: '1.5rem', fontWeight: 800, margin: '0 0 0.35rem' }}>Download Brochure</h2>
+              <p style={{ color: '#666', fontSize: '0.9rem', margin: 0 }}>Please share a few details to get your copy.</p>
+            </div>
+
+            <form onSubmit={handleSubmit} noValidate>
+              {/* Name */}
+              <div style={{ marginBottom: '1rem' }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#153351', marginBottom: '6px' }}>Full Name <span style={{ color:'#e53e3e' }}>*</span></label>
+                <input
+                  id="brochure-name"
+                  type="text"
+                  placeholder="e.g. John Smith"
+                  value={name}
+                  onChange={e => { setName(e.target.value); setErrors(er => ({ ...er, name: '' })); }}
+                  className={`brochure-input${errors.name ? ' error' : ''}`}
+                />
+                {errors.name && <p className="brochure-err">{errors.name}</p>}
+              </div>
+
+              {/* Email */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#153351', marginBottom: '6px' }}>Email Address <span style={{ color:'#e53e3e' }}>*</span></label>
+                <input
+                  id="brochure-email"
+                  type="email"
+                  placeholder="e.g. john@company.com"
+                  value={email}
+                  onChange={e => { setEmail(e.target.value); setErrors(er => ({ ...er, email: '' })); }}
+                  className={`brochure-input${errors.email ? ' error' : ''}`}
+                />
+                {errors.email && <p className="brochure-err">{errors.email}</p>}
+              </div>
+
+              <button type="submit" className="brochure-submit" disabled={loading}>
+                {loading ? 'Processing…' : '📥 Download Now'}
+              </button>
+            </form>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ── Main App ────────────────────────────────────────────── */
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showBrochureModal, setShowBrochureModal] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -29,6 +178,12 @@ function App() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = showBrochureModal ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [showBrochureModal]);
 
   // Determine if navbar should be transparent
   // Only transparent at the top of the home page
@@ -93,9 +248,10 @@ function App() {
             <Link to="/career" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Career</Link>
             <Link to="/contact-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Contact Us</Link>
           </nav>
-          <a
-            href="/voucher.pdf"
-            download
+          <button
+            type="button"
+            id="nav-download-brochure"
+            onClick={() => setShowBrochureModal(true)}
             className="btn btn-primary"
             style={{
               padding: '0.6rem 1.5rem',
@@ -106,16 +262,15 @@ function App() {
               alignItems: 'center',
               gap: '6px',
               whiteSpace: 'nowrap',
-              ...(isTransparent ? {
-                backgroundColor: 'rgba(255,255,255,0.15)',
-                border: '1.5px solid rgba(255,255,255,0.8)',
-                color: '#ffffff',
-              } : {})
+              cursor: 'pointer',
+              border: isTransparent ? '1.5px solid rgba(255,255,255,0.8)' : undefined,
+              backgroundColor: isTransparent ? 'rgba(255,255,255,0.15)' : undefined,
+              color: isTransparent ? '#ffffff' : undefined,
             }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-           Download Brochure
-          </a>
+            Download Brochure
+          </button>
           <button
             type="button"
             className="mobile-menu-button"
@@ -147,12 +302,15 @@ function App() {
             <Link to="/gallery">Gallery</Link>
             <Link to="/career">Career</Link>
             <Link to="/contact-us">Contact Us</Link>
-            <a href="/voucher.pdf" download className="btn btn-primary">Download Voucher</a>
+            <button type="button" id="mobile-download-brochure" onClick={() => { setShowBrochureModal(true); setIsMobileMenuOpen(false); }} className="btn btn-primary" style={{ cursor:'pointer', width:'100%', textAlign:'center' }}>Download Brochure</button>
           </nav>
         </div>
       </header>
 
       <ScrollToTop />
+
+      {/* Brochure Gate Modal */}
+      {showBrochureModal && <BrochureModal onClose={() => setShowBrochureModal(false)} />}
 
       <Routes>
         <Route path="/" element={<Home />} />
