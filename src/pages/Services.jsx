@@ -105,7 +105,7 @@ function Services() {
 
             <ScrollReveal delay={0.2} direction="up">
               <Link to="/services/industrial-canteen" className="expertise-card hover-card-border">
-                <img src={serviceImage3} alt="Industrial Canteen" />
+                <img src="/industry.png" alt="Industrial Canteen" />
                 <div className="card-overlay">
                   <h3 className="card-title">Industrial Canteen</h3>
                   <div className="card-details">
@@ -118,7 +118,7 @@ function Services() {
 
             <ScrollReveal delay={0.3} direction="up">
               <Link to="/services/school-cafeteria" className="expertise-card hover-card-border">
-                <img src={serviceImage2} alt="School Cafeteria" />
+                <img src="/school.png" alt="School Cafeteria" />
                 <div className="card-overlay">
                   <h3 className="card-title">School Cafeteria</h3>
                   <div className="card-details">
@@ -144,7 +144,7 @@ function Services() {
 
             <ScrollReveal delay={0.5} direction="up">
               <Link to="/services/events-conferences" className="expertise-card hover-card-border">
-                <img src="/events_catering.png" alt="Events and Conferences" />
+                <img src="/events.png" alt="Events and Conferences" />
                 <div className="card-overlay">
                   <h3 className="card-title">Events &amp; Conferences</h3>
                   <div className="card-details">

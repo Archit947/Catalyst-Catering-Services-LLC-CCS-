@@ -184,7 +184,7 @@ function Home() {
 
             <ScrollReveal delay={0.2} direction="up">
               <Link to="/services/industrial-canteen" className="expertise-card hover-card-border">
-                <img src={serviceImage3} alt="Industrial Canteen" />
+                <img src="/industry.png" alt="Industrial Canteen" />
                 <div className="card-overlay">
                   <h3 className="card-title">Industrial Canteen</h3>
                   <div className="card-details">
@@ -223,7 +223,7 @@ function Home() {
 
             <ScrollReveal delay={0.5} direction="up">
               <Link to="/services/events-conferences" className="expertise-card hover-card-border">
-                <img src="/events_catering.png" alt="Events and Conferences" />
+                <img src="/events.png" alt="Events and Conferences" />
                 <div className="card-overlay">
                   <h3 className="card-title">Events &amp; Conferences</h3>
                   <div className="card-details">
@@ -261,7 +261,7 @@ function Home() {
 
             <div className="flex justify-between stats-row" style={{ maxWidth: '1200px', margin: '0 auto' }}>
               {[
-                { num: 4150, suffix: 'M', label: 'REVENUE' },
+                { num: 4150, suffix: 'M AED', label: 'REVENUE' },
                 { num: 2, suffix: 'Lakh +', label: 'MEALS SERVED PER DAY' },
                 { num: 100, suffix: '+', label: 'GLOBAL SITES' },
                 { num: 5, suffix: 'K+', label: 'EMPLOYEES' },
