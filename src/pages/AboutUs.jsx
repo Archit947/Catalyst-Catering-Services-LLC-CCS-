@@ -74,6 +74,7 @@ function AboutUs() {
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: info@catalystgroupme.com</div>
               </div>
             </ScrollReveal>
+
             <ScrollReveal delay={0.1} direction="up" className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> India Office
@@ -99,7 +100,6 @@ function AboutUs() {
                 <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: sales@catalystsolutions.eco</div>
               </div>
             </ScrollReveal>
-
 
           </div>
         </div>

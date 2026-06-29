@@ -99,8 +99,8 @@ function BrochureModal({ onClose }) {
             alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem', color: '#153351',
             transition: 'background 0.2s',
           }}
-          onMouseEnter={e => e.currentTarget.style.background='rgba(21,51,81,0.18)'}
-          onMouseLeave={e => e.currentTarget.style.background='rgba(21,51,81,0.08)'}
+          onMouseEnter={e => e.currentTarget.style.background = 'rgba(21,51,81,0.18)'}
+          onMouseLeave={e => e.currentTarget.style.background = 'rgba(21,51,81,0.08)'}
         >×</button>
 
         {submitted ? (
@@ -114,7 +114,7 @@ function BrochureModal({ onClose }) {
             {/* Header */}
             <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg,#153351,#1e4d7a)', marginBottom: '1rem' }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
               </div>
               <h2 style={{ color: '#153351', fontSize: '1.5rem', fontWeight: 800, margin: '0 0 0.35rem' }}>Download Brochure</h2>
               <p style={{ color: '#666', fontSize: '0.9rem', margin: 0 }}>Please share a few details to get your copy.</p>
@@ -123,7 +123,7 @@ function BrochureModal({ onClose }) {
             <form onSubmit={handleSubmit} noValidate>
               {/* Name */}
               <div style={{ marginBottom: '1rem' }}>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#153351', marginBottom: '6px' }}>Full Name <span style={{ color:'#e53e3e' }}>*</span></label>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#153351', marginBottom: '6px' }}>Full Name <span style={{ color: '#e53e3e' }}>*</span></label>
                 <input
                   id="brochure-name"
                   type="text"
@@ -137,7 +137,7 @@ function BrochureModal({ onClose }) {
 
               {/* Email */}
               <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#153351', marginBottom: '6px' }}>Email Address <span style={{ color:'#e53e3e' }}>*</span></label>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: '#153351', marginBottom: '6px' }}>Email Address <span style={{ color: '#e53e3e' }}>*</span></label>
                 <input
                   id="brochure-email"
                   type="email"
@@ -221,7 +221,6 @@ function App() {
               style={{
                 height: isTransparent ? '45px' : '40px',
                 transition: 'all 0.3s',
-                filter: isTransparent ? 'brightness(0) invert(1)' : 'none',
               }}
             />
           </Link>
@@ -268,7 +267,7 @@ function App() {
               color: isTransparent ? '#ffffff' : undefined,
             }}
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
             Download Brochure
           </button>
           <button
@@ -302,7 +301,7 @@ function App() {
             <Link to="/gallery">Gallery</Link>
             <Link to="/career">Career</Link>
             <Link to="/contact-us">Contact Us</Link>
-            <button type="button" id="mobile-download-brochure" onClick={() => { setShowBrochureModal(true); setIsMobileMenuOpen(false); }} className="btn btn-primary" style={{ cursor:'pointer', width:'100%', textAlign:'center' }}>Download Brochure</button>
+            <button type="button" id="mobile-download-brochure" onClick={() => { setShowBrochureModal(true); setIsMobileMenuOpen(false); }} className="btn btn-primary" style={{ cursor: 'pointer', width: '100%', textAlign: 'center' }}>Download Brochure</button>
           </nav>
         </div>
       </header>
@@ -391,6 +390,10 @@ function App() {
                 <Mail size={18} color="var(--color-accent)" style={{ flexShrink: 0 }} />
                 <span style={{ color: 'rgba(0, 0, 0, 0.8)', fontSize: '0.95rem' }}>info@catalystgroupme.com</span>
               </div>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <Phone size={18} color="var(--color-accent)" style={{ flexShrink: 0 }} />
+                <span style={{ color: 'rgba(0, 0, 0, 0.8)', fontSize: '0.95rem' }}>+971-50 703 9622</span>
+              </div>
             </div>
           </div>
         </div>
@@ -402,8 +405,8 @@ function App() {
               © 2026 Catalyst Catering Services LLC (CCS). All rights reserved.
             </p>
             <div style={{ display: 'flex', gap: 'var(--spacing-lg)' }}>
-              <Link to="#" style={{ color: 'rgba(0, 0, 0, 0.6)', fontSize: '0.85rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'white'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}>Privacy Policy</Link>
-              <Link to="#" style={{ color: 'rgba(0, 0, 0, 0.6)', fontSize: '0.85rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'white'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}>Terms of Service</Link>
+              <Link to="#" style={{ color: 'rgba(0, 0, 0, 0.6)', fontSize: '0.85rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'white'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(0, 0, 0, 1)'}>Privacy Policy</Link>
+              <Link to="#" style={{ color: 'rgba(0, 0, 0, 0.6)', fontSize: '0.85rem', transition: 'color 0.2s' }} onMouseEnter={(e) => e.currentTarget.style.color = 'white'} onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(0, 0, 0, 1)'}>Terms of Service</Link>
             </div>
           </div>
         </div>

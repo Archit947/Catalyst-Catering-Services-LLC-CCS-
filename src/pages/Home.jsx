@@ -48,7 +48,7 @@ function Home() {
       }}>
         {/* Background image */}
         <img
-          src="/7.png"
+          src="/home.png"
           alt="Catalyst catering hero"
           style={{
             position: 'absolute',
@@ -132,6 +132,35 @@ function Home() {
 
       {/* EXPERTISE SECTION */}
       <section id="expertise" className="section">
+        <style>{`
+          .expertise-card { position: relative; border-radius: var(--radius-lg); overflow: hidden; height: 400px; display: block; }
+          .expertise-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+          .expertise-card:hover img { transform: scale(1.06); }
+          .expertise-card .card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: var(--spacing-xl);
+            transition: background 0.4s ease;
+          }
+          .expertise-card:hover .card-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.1) 100%);
+          }
+          .expertise-card .card-title { color: white; font-size: 1.75rem; margin-bottom: 0; transition: margin-bottom 0.35s ease; }
+          .expertise-card:hover .card-title { margin-bottom: 0.6rem; }
+          .expertise-card .card-details {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: max-height 0.4s ease, opacity 0.35s ease, transform 0.35s ease;
+          }
+          .expertise-card:hover .card-details {
+            max-height: 120px;
+            opacity: 1;
+            transform: translateY(0);
+          }
+        `}</style>
         <div className="container">
           <ScrollReveal direction="up" className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
             <h2 style={{ fontSize: '3rem', marginBottom: 'var(--spacing-sm)' }}>Our Expertise</h2>
@@ -141,67 +170,79 @@ function Home() {
           <div className="expertise-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--spacing-lg)' }}>
 
             <ScrollReveal delay={0.1} direction="up">
-              <Link to="/services/cafeteria-food-court" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
-                <img src="/food_court.png" alt="Cafeteria & Food Court" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Cafeteria & Food Court</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Vibrant, diverse, and high-quality food experiences for corporate spaces.</p>
-                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+              <Link to="/services/cafeteria-food-court" className="expertise-card hover-card-border">
+                <img src="/food_court.png" alt="Cafeteria & Food Court" />
+                <div className="card-overlay">
+                  <h3 className="card-title">Cafeteria &amp; Food Court</h3>
+                  <div className="card-details">
+                    <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Vibrant, diverse, and high-quality food experiences for corporate spaces.</p>
+                    <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+                  </div>
                 </div>
               </Link>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2} direction="up">
-              <Link to="/services/industrial-canteen" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
-                <img src={serviceImage3} alt="Industrial Canteen" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Industrial Canteen</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Nutritious, large-scale catering designed for workforce energy and well-being.</p>
-                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+              <Link to="/services/industrial-canteen" className="expertise-card hover-card-border">
+                <img src={serviceImage3} alt="Industrial Canteen" />
+                <div className="card-overlay">
+                  <h3 className="card-title">Industrial Canteen</h3>
+                  <div className="card-details">
+                    <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Nutritious, large-scale catering designed for workforce energy and well-being.</p>
+                    <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+                  </div>
                 </div>
               </Link>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3} direction="up">
-              <Link to="/services/school-cafeteria" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
-                <img src={serviceImage2} alt="School Cafeteria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>School Cafeteria</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Wholesome, balanced, and appealing meals to foster healthy eating habits.</p>
-                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+              <Link to="/services/school-cafeteria" className="expertise-card hover-card-border">
+                <img src="/school.png" alt="School Cafeteria" />
+                <div className="card-overlay">
+                  <h3 className="card-title">School Cafeteria</h3>
+                  <div className="card-details">
+                    <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Wholesome, balanced, and appealing meals to foster healthy eating habits.</p>
+                    <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+                  </div>
                 </div>
               </Link>
             </ScrollReveal>
 
             <ScrollReveal delay={0.4} direction="up">
-              <Link to="/services/inhouse-patient-dining" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
-                <img src="/clinical_nutrition.png" alt="Inhouse Patient Dining" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Inhouse Patient Dining</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Specialized diet care focused meticulously on patient recovery.</p>
-                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+              <Link to="/services/inhouse-patient-dining" className="expertise-card hover-card-border">
+                <img src="/clinical_nutrition.png" alt="Inhouse Patient Dining" />
+                <div className="card-overlay">
+                  <h3 className="card-title">Inhouse Patient Dining</h3>
+                  <div className="card-details">
+                    <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Specialized diet care focused meticulously on patient recovery.</p>
+                    <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+                  </div>
                 </div>
               </Link>
             </ScrollReveal>
 
             <ScrollReveal delay={0.5} direction="up">
-              <Link to="/services/events-conferences" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
-                <img src="/events_catering.png" alt="Events and Conferences" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Events & Conferences</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Elegant, premium catering solutions that leave a lasting impression.</p>
-                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+              <Link to="/services/events-conferences" className="expertise-card hover-card-border">
+                <img src="/events_catering.png" alt="Events and Conferences" />
+                <div className="card-overlay">
+                  <h3 className="card-title">Events &amp; Conferences</h3>
+                  <div className="card-details">
+                    <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Elegant, premium catering solutions that leave a lasting impression.</p>
+                    <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+                  </div>
                 </div>
               </Link>
             </ScrollReveal>
 
             <ScrollReveal delay={0.6} direction="up">
-              <Link to="/services/guest-house-management" className="hover-card hover-card-border" style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', height: '400px', display: 'block' }}>
-                <img src={serviceImage4} alt="Guest house Management" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85), transparent)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: 'var(--spacing-xl)' }}>
-                  <h3 style={{ color: 'white', fontSize: '1.75rem', marginBottom: 'var(--spacing-xs)' }}>Guest House Management</h3>
-                  <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Luxurious hospitality and dining services for corporate lodging.</p>
-                  <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+              <Link to="/services/guest-house-management" className="expertise-card hover-card-border">
+                <img src={serviceImage4} alt="Guest House Management" />
+                <div className="card-overlay">
+                  <h3 className="card-title">Guest House Management</h3>
+                  <div className="card-details">
+                    <p style={{ color: '#E8E2D2', fontSize: '0.9rem', lineHeight: 1.5, marginBottom: 'var(--spacing-sm)' }}>Luxurious hospitality and dining services for corporate lodging.</p>
+                    <div><span className="btn btn-primary" style={{ padding: '0.4rem 1.2rem', fontSize: '0.85rem', display: 'inline-block' }}>Read more</span></div>
+                  </div>
                 </div>
               </Link>
             </ScrollReveal>
