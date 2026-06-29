@@ -228,11 +228,11 @@ function App() {
             .nav-dropdown:hover .nav-dropdown-content { display: block !important; }
             .nav-dropdown-content a:hover { background-color: #f9f9f9; color: var(--color-accent) !important; }
           `}</style>
-          <nav className="flex gap-lg nav-menu" style={{ fontWeight: 600, fontSize: '0.95rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : 'var(--color-primary-dark)', transition: 'color 0.3s', alignItems: 'center' }}>
-            <Link to="/" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Home</Link>
+          <nav className="flex gap-lg nav-menu" style={{ fontWeight: 600, fontSize: '0.95rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : 'var(--color-primary-dark)', transition: 'color 0.3s', alignItems: 'center' }}>
+            <Link to="/" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>Home</Link>
 
             <div className="nav-dropdown" style={{ position: 'relative', display: 'inline-block', paddingBottom: '1.5rem', marginBottom: '-1.5rem' }}>
-              <span style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>
+              <span style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>
                 Services <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
               <div className="nav-dropdown-content" style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', minWidth: '220px', boxShadow: '0 8px 16px rgba(0,0,0,0.1)', borderTop: '3px solid var(--color-accent)', display: 'none', zIndex: 1000 }}>
@@ -241,11 +241,11 @@ function App() {
               </div>
             </div>
 
-            <Link to="/about-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>About Us</Link>
-            <Link to="/why-choose-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Why Choose Us</Link>
-            <Link to="/gallery" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Gallery</Link>
-            <Link to="/career" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Career</Link>
-            <Link to="/contact-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(255,255,255,0.9)' : undefined }}>Contact Us</Link>
+            <Link to="/about-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>About Us</Link>
+            <Link to="/why-choose-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>Why Choose Us</Link>
+            <Link to="/gallery" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>Gallery</Link>
+            <Link to="/career" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>Career</Link>
+            <Link to="/contact-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>Contact Us</Link>
           </nav>
           <button
             type="button"
@@ -262,9 +262,9 @@ function App() {
               gap: '6px',
               whiteSpace: 'nowrap',
               cursor: 'pointer',
-              border: isTransparent ? '1.5px solid rgba(255,255,255,0.8)' : undefined,
+              border: isTransparent ? '1.5px solid rgba(0, 0, 0, 0.8)' : undefined,
               backgroundColor: isTransparent ? 'rgba(255,255,255,0.15)' : undefined,
-              color: isTransparent ? '#ffffff' : undefined,
+              color: isTransparent ? '#000000ff' : undefined,
             }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
