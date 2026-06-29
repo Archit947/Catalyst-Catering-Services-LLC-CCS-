@@ -59,6 +59,21 @@ function AboutUs() {
           </ScrollReveal>
 
           <div className="grid-3" style={{ gap: 'var(--spacing-xl)' }}>
+            <ScrollReveal delay={0.3} direction="up" className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
+              <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ color: 'var(--color-primary)' }}>📍</span> Middle East
+              </h4>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
+                Catalyst Catering Services LLC (CCS)<br /><br />
+                Darwish Compound, Warehouse No.4,<br />
+                Building No: 3, DIP–2,<br />
+                Dubai<br />
+              </p>
+              <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
+
+                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: info@catalystgroupme.com</div>
+              </div>
+            </ScrollReveal>
             <ScrollReveal delay={0.1} direction="up" className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
               <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span style={{ color: 'var(--color-primary)' }}>📍</span> India Office
@@ -85,21 +100,7 @@ function AboutUs() {
               </div>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.3} direction="up" className="hover-card" style={{ padding: 'var(--spacing-2xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)' }}>
-              <h4 style={{ fontSize: '1.25rem', marginBottom: 'var(--spacing-md)', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span style={{ color: 'var(--color-primary)' }}>📍</span> Middle East
-              </h4>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: 'var(--spacing-lg)', lineHeight: 1.6 }}>
-                Catalyst Catering Services LLC (CCS)<br /><br />
-                Darwish Compound, Warehouse No.4,<br />
-                Building No: 3, DIP–2,<br />
-                Dubai<br />
-              </p>
-              <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: 'var(--spacing-md)' }}>
 
-                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Email: info@catalystgroupme.com</div>
-              </div>
-            </ScrollReveal>
           </div>
         </div>
       </section>
