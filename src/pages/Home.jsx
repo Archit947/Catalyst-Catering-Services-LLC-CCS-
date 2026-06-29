@@ -48,7 +48,7 @@ function Home() {
       }}>
         {/* Background image */}
         <img
-          src="/home.png"
+          src="/home2.png"
           alt="Catalyst catering hero"
           style={{
             position: 'absolute',
