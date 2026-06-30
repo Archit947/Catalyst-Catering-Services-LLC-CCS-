@@ -12,13 +12,13 @@ function WhyChooseUs() {
       {/* HERO SECTION */}
       <section className="hero-section" style={{ position: 'relative', minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '80px', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, zIndex: -1, width: '100%', height: '100%' }}>
-          <img src="/7.png" alt="Why Choose Us" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src="/home2.png" alt="Why Choose Us" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.4))' }}></div>
         </div>
         <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center', width: '100%' }}>
           <ScrollReveal direction="up">
             <h1 className="hero-title" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
-              Why Choose <span style={{color: 'var(--color-accent)'}}>Catalyst?</span>
+              Why Choose <span style={{ color: 'var(--color-accent)' }}>Catalyst?</span>
             </h1>
             <p style={{ color: '#E8E2D2', fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto', fontWeight: 300, lineHeight: 1.6 }}>
               Elevating standards. Exceeding expectations. Redefining culinary and facility management across the UAE.
@@ -70,13 +70,13 @@ function WhyChooseUs() {
 
       {/* CTA */}
       <section className="section section-bg-alt">
-         <div className="container text-center">
-            <ScrollReveal direction="up">
-              <h2 style={{ fontSize: '2.5rem', marginBottom: 'var(--spacing-md)' }}>Experience the Difference</h2>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', marginBottom: 'var(--spacing-xl)' }}>Partner with us and elevate your corporate environment to new heights of luxury and efficiency.</p>
-              <Link to="/contact-us" className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>Contact Our Team</Link>
-            </ScrollReveal>
-         </div>
+        <div className="container text-center">
+          <ScrollReveal direction="up">
+            <h2 style={{ fontSize: '2.5rem', marginBottom: 'var(--spacing-md)' }}>Experience the Difference</h2>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', marginBottom: 'var(--spacing-xl)' }}>Partner with us and elevate your corporate environment to new heights of luxury and efficiency.</p>
+            <Link to="/contact-us" className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }}>Contact Our Team</Link>
+          </ScrollReveal>
+        </div>
       </section>
 
     </main>

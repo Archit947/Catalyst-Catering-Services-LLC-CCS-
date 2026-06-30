@@ -494,7 +494,7 @@ button {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   header .app-header-inner {
     display: flex !important;
     flex-direction: row !important;
@@ -567,7 +567,7 @@ button {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .mobile-menu-panel {
     display: block;
     overflow: hidden;
@@ -795,6 +795,26 @@ button {
 
   .min-h-600 {
     min-height: auto;
+  }
+
+  .nav-menu {
+    gap: var(--spacing-md) !important;
+  }
+
+  .nav-menu a, .nav-menu span {
+    font-size: 0.75rem !important;
+  }
+
+  .stats-row {
+    flex-wrap: wrap;
+    justify-content: center !important;
+    gap: var(--spacing-2xl);
+  }
+
+  .stats-row > div {
+    flex: 1 1 30%;
+    min-width: 200px;
+    margin-bottom: var(--spacing-md);
   }
 }
 
