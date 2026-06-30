@@ -4,7 +4,7 @@ import { VerticalImageStack } from '../components/ui/vertical-image-stack';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { useInView } from 'framer-motion';
 
-function AnimatedCounter({ end, suffix }) {
+function AnimatedCounter({ end, suffix, prefix }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
@@ -27,7 +27,12 @@ function AnimatedCounter({ end, suffix }) {
     }
   }, [isInView, end]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {prefix && <span style={{ fontSize: '0.5em', verticalAlign: 'middle', marginRight: '4px' }}>{prefix}</span>}
+      {count}{suffix}
+    </span>
+  );
 }
 
 import serviceImage2 from '../assets/2.png';
@@ -261,15 +266,15 @@ function Home() {
 
             <div className="flex justify-between stats-row" style={{ maxWidth: '1200px', margin: '0 auto' }}>
               {[
-                { num: 4150, suffix: 'M AED', label: 'REVENUE' },
-                { num: 2, suffix: 'Lakh +', label: 'MEALS SERVED PER DAY' },
+                { num: 4000, prefix: 'AED ', suffix: 'M +', label: 'REVENUE' },
+                { num: 200000, suffix: '+', label: 'MEALS SERVED PER DAY' },
                 { num: 100, suffix: '+', label: 'GLOBAL SITES' },
-                { num: 5, suffix: 'K+', label: 'EMPLOYEES' },
-                { num: 75, suffix: 'M+ sq.ft', label: 'Operational' },
+                { num: 5500, suffix: '+', label: 'EMPLOYEES' },
+                { num: 13, suffix: 'M+ sq.ft', label: 'Operational' },
               ].map((stat, idx) => (
                 <div key={idx}>
                   <div style={{ fontSize: '3.5rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', lineHeight: 1.2 }}>
-                    <AnimatedCounter end={stat.num} suffix={stat.suffix} />
+                    <AnimatedCounter end={stat.num} suffix={stat.suffix} prefix={stat.prefix} />
                   </div>
                   <div style={{ fontSize: '0.85rem', fontWeight: 600, letterSpacing: '2px', color: '#E8E2D2' }}>{stat.label}</div>
                 </div>
