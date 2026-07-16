@@ -1,6 +1,95 @@
 import React, { useState } from 'react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 
+/* ── Apply Modal ─────────────────────────────────────────── */
+function ApplyModal({ jobTitle, onClose }) {
+  // We use formsubmit.co to handle the form submission and send it to an email
+  // The email address will be replaced when you provide it.
+  const formSubmitUrl = "https://formsubmit.co/architkore72@gmail.com";
+
+  const handleBackdrop = (ev) => { if (ev.target === ev.currentTarget) onClose(); };
+
+  return (
+    <div
+      onClick={handleBackdrop}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 9999,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', backdropFilter: 'blur(4px)',
+        padding: '1rem'
+      }}
+    >
+      <div style={{
+        background: '#fff', borderRadius: '16px', padding: '2rem',
+        maxWidth: '500px', width: '100%', position: 'relative',
+        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
+        maxHeight: '90vh', overflowY: 'auto'
+      }}>
+        <button
+          onClick={onClose}
+          type="button"
+          style={{
+            position: 'absolute', top: '1.5rem', right: '1.5rem',
+            background: 'none', border: 'none', cursor: 'pointer',
+            padding: '0.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            color: '#999', transition: 'color 0.2s ease'
+          }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 6L6 18M6 6l12 12" /></svg>
+        </button>
+
+        <h2 style={{ color: '#153351', fontSize: '1.5rem', fontWeight: 800, margin: '0 0 1.5rem' }}>
+          Apply for {jobTitle || 'Opportunity'}
+        </h2>
+        
+        <form action={formSubmitUrl} method="POST" encType="multipart/form-data">
+          <input type="hidden" name="_subject" value={`New Job Application: ${jobTitle || 'General'}`} />
+          <input type="hidden" name="_captcha" value="false" />
+          
+          <div style={{ marginBottom: '1.25rem' }}>
+            <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#153351', marginBottom: '0.4rem' }}>
+              Full Name <span style={{ color: 'red' }}>*</span>
+            </label>
+            <input type="text" name="name" required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid #ddd', backgroundColor: '#fafafa' }} placeholder="John Doe" />
+          </div>
+          
+          <div style={{ marginBottom: '1.25rem' }}>
+            <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#153351', marginBottom: '0.4rem' }}>
+              Email Address <span style={{ color: 'red' }}>*</span>
+            </label>
+            <input type="email" name="email" required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid #ddd', backgroundColor: '#fafafa' }} placeholder="john@example.com" />
+          </div>
+
+          <div style={{ marginBottom: '1.25rem' }}>
+            <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#153351', marginBottom: '0.4rem' }}>
+              Phone Number <span style={{ color: 'red' }}>*</span>
+            </label>
+            <input type="tel" name="phone" required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid #ddd', backgroundColor: '#fafafa' }} placeholder="+971 50 123 4567" />
+          </div>
+          
+          <div style={{ marginBottom: '1.25rem' }}>
+            <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#153351', marginBottom: '0.4rem' }}>
+              Designation Applying For <span style={{ color: 'red' }}>*</span>
+            </label>
+            <input type="text" name="designation" defaultValue={jobTitle || ''} required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid #ddd', backgroundColor: '#fafafa' }} />
+          </div>
+          
+          <div style={{ marginBottom: '1.5rem' }}>
+            <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#153351', marginBottom: '0.4rem' }}>
+              Upload CV (PDF, DOCX) <span style={{ color: 'red' }}>*</span>
+            </label>
+            <input type="file" name="attachment" accept=".pdf,.doc,.docx" required style={{ width: '100%', padding: '0.5rem', border: '1px dashed #ccc', borderRadius: '8px', backgroundColor: '#fafafa' }} />
+          </div>
+          
+          <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '0.9rem', fontSize: '1.05rem', cursor: 'pointer', textAlign: 'center' }}>
+            Submit Application
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 const openings = [
   {
     id: 1,
@@ -63,6 +152,15 @@ const perks = [
 
 function Career() {
   const [applied, setApplied] = useState(null);
+  const [showApplyModal, setShowApplyModal] = useState(false);
+  const [selectedJob, setSelectedJob] = useState('');
+
+  const handleApplyClick = (jobTitle, jobId) => {
+    setSelectedJob(jobTitle);
+    setShowApplyModal(true);
+    // Optional: mark as applied immediately or only on success, but for now we just open modal
+    // setApplied(jobId);
+  };
 
   return (
     <main>
@@ -163,7 +261,7 @@ function Career() {
                       </span>
                     ) : (
                       <button
-                        onClick={() => setApplied(job.id)}
+                        onClick={() => handleApplyClick(job.title, job.id)}
                         className="btn btn-primary"
                         style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem', whiteSpace: 'nowrap' }}
                       >
@@ -198,6 +296,14 @@ function Career() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* Apply Modal */}
+      {showApplyModal && (
+        <ApplyModal 
+          jobTitle={selectedJob} 
+          onClose={() => setShowApplyModal(false)} 
+        />
+      )}
     </main>
   );
 }

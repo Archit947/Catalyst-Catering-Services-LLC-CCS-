@@ -12,6 +12,7 @@ import ServiceDetail from './pages/ServiceDetail';
 import Gallery from './pages/Gallery';
 import Career from './pages/Career';
 import ScrollToTop from './ScrollToTop';
+import ccsProfilePdf from './assets/CCS Profile May 2026.pdf';
 
 /* ── Brochure Gate Modal ─────────────────────────────────── */
 function BrochureModal({ onClose }) {
@@ -40,8 +41,8 @@ function BrochureModal({ onClose }) {
       setSubmitted(true);
       // Trigger download
       const link = document.createElement('a');
-      link.href = '/Catalyst-Company-Profile.pdf';
-      link.download = 'Catalyst-Company-Profile.pdf';
+      link.href = ccsProfilePdf;
+      link.download = 'CCS Profile May 2026.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -116,7 +117,7 @@ function BrochureModal({ onClose }) {
               <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg,#153351,#1e4d7a)', marginBottom: '1rem' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
               </div>
-              <h2 style={{ color: '#153351', fontSize: '1.5rem', fontWeight: 800, margin: '0 0 0.35rem' }}>Download Profile</h2>
+              <h2 style={{ color: '#153351', fontSize: '1.5rem', fontWeight: 800, margin: '0 0 0.35rem' }}>Profile Download</h2>
               <p style={{ color: '#666', fontSize: '0.9rem', margin: 0 }}>Please share a few details to get your copy.</p>
             </div>
 
@@ -268,7 +269,7 @@ function App() {
             }}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
-            Download Profile
+            Profile Download
           </button>
           <button
             type="button"
@@ -301,7 +302,7 @@ function App() {
             <Link to="/gallery">Gallery</Link>
             <Link to="/career">Career</Link>
             <Link to="/contact-us">Contact Us</Link>
-            <button type="button" id="mobile-download-brochure" onClick={() => { setShowBrochureModal(true); setIsMobileMenuOpen(false); }} className="btn btn-primary" style={{ cursor: 'pointer', width: '100%', textAlign: 'center' }}>Download Profile</button>
+            <button type="button" id="mobile-download-brochure" onClick={() => { setShowBrochureModal(true); setIsMobileMenuOpen(false); }} className="btn btn-primary" style={{ cursor: 'pointer', width: '100%', textAlign: 'center' }}>Profile Download</button>
           </nav>
         </div>
       </header>
