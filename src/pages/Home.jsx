@@ -30,7 +30,7 @@ function AnimatedCounter({ end, suffix, prefix }) {
   return (
     <span ref={ref}>
       {prefix && <span style={{ fontSize: '0.5em', verticalAlign: 'middle', marginRight: '4px' }}>{prefix}</span>}
-      {count}{suffix}
+      {count.toLocaleString('en-US')}{suffix}
     </span>
   );
 }
@@ -202,7 +202,7 @@ function Home() {
 
             <ScrollReveal delay={0.3} direction="up">
               <Link to="/services/school-cafeteria" className="expertise-card hover-card-border">
-                <img src="/school.png" alt="School Cafeteria" />
+                <img src="/education_food.png" alt="School Cafeteria" />
                 <div className="card-overlay">
                   <h3 className="card-title">School Cafeteria</h3>
                   <div className="card-details">
@@ -264,19 +264,19 @@ function Home() {
             <h2 style={{ color: 'white', marginBottom: 'var(--spacing-sm)', fontSize: '2.5rem' }}>World-Class Domain Expertise</h2>
             <p style={{ color: '#E8E2D2', marginBottom: 'var(--spacing-3xl)', fontSize: '1.1rem' }}>Constantly adapting to elite market needs and innovating luxury solutions.</p>
 
-            <div className="flex justify-between stats-row" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <div className="flex stats-row" style={{ maxWidth: '1200px', margin: '0 auto', justifyContent: 'center', flexWrap: 'wrap', columnGap: 'clamp(2rem, 4.5vw, 4.5rem)', rowGap: 'var(--spacing-xl)' }}>
               {[
-                { num: 4000, prefix: 'AED ', suffix: 'M +', label: 'REVENUE' },
+                { num: 400, prefix: 'AED ', suffix: 'M+', label: 'REVENUE' },
                 { num: 200000, suffix: '+', label: 'MEALS SERVED PER DAY' },
                 { num: 100, suffix: '+', label: 'GLOBAL SITES' },
                 { num: 5500, suffix: '+', label: 'EMPLOYEES' },
-                { num: 13, suffix: 'M+ sq.ft', label: 'Operational' },
+                { num: 13, suffix: 'M+', label: 'SQ.FT OPERATIONAL' },
               ].map((stat, idx) => (
                 <div key={idx}>
-                  <div style={{ fontSize: '3.5rem', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', lineHeight: 1.2 }}>
+                  <div style={{ fontSize: 'clamp(2.1rem, 2.6vw, 2.9rem)', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', lineHeight: 1.2, whiteSpace: 'nowrap' }}>
                     <AnimatedCounter end={stat.num} suffix={stat.suffix} prefix={stat.prefix} />
                   </div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, letterSpacing: '2px', color: '#E8E2D2' }}>{stat.label}</div>
+                  <div style={{ fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.16em', color: '#E8E2D2', textTransform: 'uppercase' }}>{stat.label}</div>
                 </div>
               ))}
             </div>

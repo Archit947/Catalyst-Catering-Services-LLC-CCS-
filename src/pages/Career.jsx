@@ -189,7 +189,7 @@ function Career() {
               We're always on the lookout for talented, passionate individuals. Send us your CV and we'll reach out when a suitable opportunity arises.
             </p>
             <a
-              href="mailto:careers@catalystuae.com"
+              href="mailto:careers@catalystgroupme.com"
               className="btn btn-primary"
               style={{ padding: '0.9rem 2.5rem', fontSize: '1rem' }}
             >

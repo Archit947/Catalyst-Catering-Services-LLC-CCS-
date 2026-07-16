@@ -18,9 +18,10 @@
   --color-bg-alt: #FFFFFF;
   --color-border: #E8E2D2;
 
-  /* Typography */
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  /* Typography — UAE pairing: Marcellus (classical luxury display)
+     + Cairo (designed for the Arab world, Arabic-ready) */
+  --font-sans: 'Cairo', 'Inter', 'Segoe UI', sans-serif;
+  --font-serif: 'Marcellus', 'Playfair Display', Georgia, serif;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -71,11 +72,15 @@ body {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-sans);
   color: var(--color-text);
   background-color: var(--color-bg);
-  line-height: 1.7;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -89,8 +94,21 @@ h5,
 h6 {
   font-family: var(--font-serif);
   color: var(--color-primary-dark);
-  font-weight: 600;
-  line-height: 1.15;
+  /* Marcellus is a single-weight classical face — tracking, not boldness */
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 a {
@@ -185,9 +203,9 @@ button {
   justify-content: center;
   padding: 0.875rem 2rem;
   border-radius: var(--radius-full);
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
   transition: var(--transition-smooth);
 }
 
@@ -258,13 +276,14 @@ button {
 /* Tags */
 .tag {
   display: inline-block;
-  padding: 0.35rem 1rem;
+  padding: 0.35rem 1.1rem;
   border-radius: var(--radius-full);
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  background-color: var(--color-accent-light);
+  letter-spacing: 0.18em;
+  background-color: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.4);
   color: var(--color-primary-dark);
   margin-bottom: var(--spacing-md);
 }
