@@ -118,7 +118,7 @@ function Services() {
 
             <ScrollReveal delay={0.3} direction="up">
               <Link to="/services/school-cafeteria" className="expertise-card hover-card-border">
-                <img src="/school.png" alt="School Cafeteria" />
+                <img src="/education_food.png" alt="School Cafeteria" />
                 <div className="card-overlay">
                   <h3 className="card-title">School Cafeteria</h3>
                   <div className="card-details">
