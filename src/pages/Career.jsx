@@ -41,18 +41,18 @@ function ApplyModal({ jobTitle, onClose }) {
         <h2 style={{ color: '#153351', fontSize: '1.5rem', fontWeight: 800, margin: '0 0 1.5rem' }}>
           Apply for {jobTitle || 'Opportunity'}
         </h2>
-        
+
         <form action={formSubmitUrl} method="POST" encType="multipart/form-data">
           <input type="hidden" name="_subject" value={`New Job Application: ${jobTitle || 'General'}`} />
           <input type="hidden" name="_captcha" value="false" />
-          
+
           <div style={{ marginBottom: '1.25rem' }}>
             <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#153351', marginBottom: '0.4rem' }}>
               Full Name <span style={{ color: 'red' }}>*</span>
             </label>
             <input type="text" name="name" required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid #ddd', backgroundColor: '#fafafa' }} placeholder="John Doe" />
           </div>
-          
+
           <div style={{ marginBottom: '1.25rem' }}>
             <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#153351', marginBottom: '0.4rem' }}>
               Email Address <span style={{ color: 'red' }}>*</span>
@@ -66,21 +66,21 @@ function ApplyModal({ jobTitle, onClose }) {
             </label>
             <input type="tel" name="phone" required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid #ddd', backgroundColor: '#fafafa' }} placeholder="+971 50 123 4567" />
           </div>
-          
+
           <div style={{ marginBottom: '1.25rem' }}>
             <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#153351', marginBottom: '0.4rem' }}>
               Designation Applying For <span style={{ color: 'red' }}>*</span>
             </label>
             <input type="text" name="designation" defaultValue={jobTitle || ''} required style={{ width: '100%', padding: '0.8rem 1rem', borderRadius: '8px', border: '1px solid #ddd', backgroundColor: '#fafafa' }} />
           </div>
-          
+
           <div style={{ marginBottom: '1.5rem' }}>
             <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#153351', marginBottom: '0.4rem' }}>
               Upload CV (PDF, DOCX) <span style={{ color: 'red' }}>*</span>
             </label>
             <input type="file" name="attachment" accept=".pdf,.doc,.docx" required style={{ width: '100%', padding: '0.5rem', border: '1px dashed #ccc', borderRadius: '8px', backgroundColor: '#fafafa' }} />
           </div>
-          
+
           <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '0.9rem', fontSize: '1.05rem', cursor: 'pointer', textAlign: 'center' }}>
             Submit Application
           </button>
@@ -286,22 +286,22 @@ function Career() {
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: 'var(--spacing-xl)' }}>
               We're always on the lookout for talented, passionate individuals. Send us your CV and we'll reach out when a suitable opportunity arises.
             </p>
-            <a
-              href="mailto:careers@catalystgroupme.com"
+            <button
+              onClick={() => handleApplyClick('General Application')}
               className="btn btn-primary"
-              style={{ padding: '0.9rem 2.5rem', fontSize: '1rem' }}
+              style={{ padding: '0.9rem 2.5rem', fontSize: '1rem', cursor: 'pointer', border: 'none' }}
             >
               Send Your CV
-            </a>
+            </button>
           </ScrollReveal>
         </div>
       </section>
 
       {/* Apply Modal */}
       {showApplyModal && (
-        <ApplyModal 
-          jobTitle={selectedJob} 
-          onClose={() => setShowApplyModal(false)} 
+        <ApplyModal
+          jobTitle={selectedJob}
+          onClose={() => setShowApplyModal(false)}
         />
       )}
     </main>
