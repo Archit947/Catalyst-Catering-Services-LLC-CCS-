@@ -286,13 +286,13 @@ function Career() {
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: 'var(--spacing-xl)' }}>
               We're always on the lookout for talented, passionate individuals. Send us your CV and we'll reach out when a suitable opportunity arises.
             </p>
-            <button
-              onClick={() => handleApplyClick('General Application')}
+            <a
+
               className="btn btn-primary"
-              style={{ padding: '0.9rem 2.5rem', fontSize: '1rem', cursor: 'pointer', border: 'none' }}
+              style={{ padding: '0.9rem 2.5rem', fontSize: '1rem' }}
             >
               Send Your CV
-            </button>
+            </a>
           </ScrollReveal>
         </div>
       </section>

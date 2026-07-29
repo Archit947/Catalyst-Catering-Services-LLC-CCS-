@@ -247,6 +247,7 @@ function App() {
             <Link to="/gallery" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>Gallery</Link>
             <Link to="/career" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>Career</Link>
             <Link to="/contact-us" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>Contact Us</Link>
+            <a href="https://www.catalystsolutions.eco/" target="_blank" rel="noopener noreferrer" style={{ textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: '0.85rem', color: isTransparent ? 'rgba(0, 0, 0, 0.9)' : undefined }}>Catalyst India</a>
           </nav>
           <button
             type="button"
@@ -302,6 +303,7 @@ function App() {
             <Link to="/gallery">Gallery</Link>
             <Link to="/career">Career</Link>
             <Link to="/contact-us">Contact Us</Link>
+            <a href="https://www.catalystsolutions.eco/" target="_blank" rel="noopener noreferrer">Catalyst India</a>
             <button type="button" id="mobile-download-brochure" onClick={() => { setShowBrochureModal(true); setIsMobileMenuOpen(false); }} className="btn btn-primary" style={{ cursor: 'pointer', width: '100%', textAlign: 'center' }}>Profile Download</button>
           </nav>
         </div>
