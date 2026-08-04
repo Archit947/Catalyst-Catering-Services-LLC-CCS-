@@ -51,7 +51,7 @@ function WhyChooseUs() {
             </p>
           </ScrollReveal>
 
-          <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))', gap: 'var(--spacing-md)' }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'var(--spacing-md)', justifyContent: 'center' }}>
             {[
               'Proven International Experience',
               'Expertise in industrial & remote catering',
