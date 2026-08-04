@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
+import { ChevronRight, Check, Phone, Mail } from 'lucide-react';
 
 const serviceData = {
   'cafeteria-food-court': {
@@ -144,11 +145,11 @@ function ServiceDetail() {
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(8,51,31,0.30) 0%, rgba(8,51,31,0.45) 45%, rgba(5,30,18,0.93) 100%)' }}></div>
         <div className="container" style={{ position: 'relative', zIndex: 2, width: '100%', paddingTop: '140px', paddingBottom: 'var(--spacing-3xl)' }}>
           <ScrollReveal direction="up">
-            <nav aria-label="Breadcrumb" style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.78rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.75)', marginBottom: 'var(--spacing-lg)' }}>
+            <nav aria-label="Breadcrumb" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.78rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.18em', color: 'rgba(255,255,255,0.75)', marginBottom: 'var(--spacing-lg)' }}>
               <Link to="/" style={{ color: 'rgba(255,255,255,0.75)' }}>Home</Link>
-              <span style={{ color: 'var(--color-accent)' }}>✦</span>
+              <ChevronRight size={14} style={{ color: 'var(--color-accent)' }} />
               <Link to="/services" style={{ color: 'rgba(255,255,255,0.75)' }}>Services</Link>
-              <span style={{ color: 'var(--color-accent)' }}>✦</span>
+              <ChevronRight size={14} style={{ color: 'var(--color-accent)' }} />
               <span style={{ color: 'var(--color-accent-light)' }}>{service.title}</span>
             </nav>
             <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', maxWidth: '850px', marginBottom: 'var(--spacing-md)', color: 'white' }}>
@@ -185,7 +186,7 @@ function ServiceDetail() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--spacing-md)', marginTop: 'var(--spacing-xl)' }}>
               {['HACCP Certified', 'UAE-Wide Operations', 'Tailored Menus', '24/7 Support'].map((pillar) => (
                 <span key={pillar} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.5rem 1.1rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--color-border)', backgroundColor: 'var(--color-bg-alt)', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-primary-dark)', boxShadow: 'var(--shadow-sm)' }}>
-                  <span style={{ color: 'var(--color-accent)' }}>✦</span> {pillar}
+                  <Check size={14} style={{ color: 'var(--color-accent)' }} /> {pillar}
                 </span>
               ))}
             </div>
@@ -208,8 +209,8 @@ function ServiceDetail() {
                 Request a Consultation
               </Link>
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: 'var(--spacing-lg)', display: 'grid', gap: '0.6rem', fontSize: '0.9rem', color: 'rgba(255,255,255,0.85)' }}>
-                <span>✆ +971-50 703 9622</span>
-                <span>✉ info@catalystgroupme.com</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Phone size={16} style={{ color: 'var(--color-accent)' }} /> +971-50 703 9622</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Mail size={16} style={{ color: 'var(--color-accent)' }} /> info@catalystgroupme.com</span>
               </div>
             </div>
           </ScrollReveal>

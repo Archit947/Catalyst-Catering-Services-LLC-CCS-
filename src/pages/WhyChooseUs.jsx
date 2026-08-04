@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { Link } from 'react-router-dom';
+import { CheckCircle2 } from 'lucide-react';
 
 function WhyChooseUs() {
   useEffect(() => {
@@ -76,7 +77,7 @@ function WhyChooseUs() {
                   alignItems: 'center',
                   gap: 'var(--spacing-md)',
                 }}>
-                  <span style={{ color: 'var(--color-accent)', fontSize: '1.4rem', flexShrink: 0 }}>✧</span>
+                  <CheckCircle2 style={{ color: 'var(--color-accent)', flexShrink: 0 }} size={20} />
                   <span style={{ color: 'var(--color-primary-dark)', fontWeight: 500, fontSize: '1rem', lineHeight: 1.5 }}>{item}</span>
                 </div>
               </ScrollReveal>

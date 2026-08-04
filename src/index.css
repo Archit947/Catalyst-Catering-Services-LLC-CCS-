@@ -522,7 +522,7 @@ button {
   }
 
   header .nav-menu,
-  header .btn {
+  #nav-download-brochure {
     display: none !important;
   }
 
@@ -599,7 +599,8 @@ button {
   }
 
   .mobile-menu-panel.is-open {
-    max-height: 420px;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
     opacity: 1;
     transform: translateY(0);
   }
@@ -633,6 +634,7 @@ button {
     flex-direction: column;
     gap: var(--spacing-md);
     padding: var(--spacing-lg);
+    padding-bottom: 2rem;
     font-weight: 600;
     color: var(--color-primary-dark);
   }

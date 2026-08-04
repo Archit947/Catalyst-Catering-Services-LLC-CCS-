@@ -11,8 +11,10 @@ import WhyChooseUs from './pages/WhyChooseUs';
 import ServiceDetail from './pages/ServiceDetail';
 import Gallery from './pages/Gallery';
 import Career from './pages/Career';
+import AdminPanel from './pages/AdminPanel';
+import SalesPanel from './pages/SalesPanel';
 import ScrollToTop from './ScrollToTop';
-import ccsProfilePdf from './assets/CCS Profile May 2026.pdf';
+import ccsProfilePdf from './assets/Catalyst Catering Services UAE Company Profile.pdf';
 
 /* ── Brochure Gate Modal ─────────────────────────────────── */
 function BrochureModal({ onClose }) {
@@ -30,12 +32,25 @@ function BrochureModal({ onClose }) {
     return e;
   };
 
-  const handleSubmit = (ev) => {
+  const handleSubmit = async (ev) => {
     ev.preventDefault();
     const e = validate();
     if (Object.keys(e).length) { setErrors(e); return; }
     setErrors({});
     setLoading(true);
+    
+    try {
+      // Log the download to the database
+      const apiBase = import.meta.env.DEV ? 'http://localhost:8000/api' : '/api';
+      await fetch(`${apiBase}/downloads.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email })
+      });
+    } catch (err) {
+      console.error("Failed to log download", err);
+    }
+
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -191,6 +206,27 @@ function App() {
   const isHome = location.pathname === '/';
   const isTransparent = isHome && !scrolled;
 
+  const [isAdminPanel, setIsAdminPanel] = useState(false);
+  const [isSalesPanel, setIsSalesPanel] = useState(false);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setIsAdminPanel(window.location.hash === '#hr-portal');
+      setIsSalesPanel(window.location.hash === '#sales-portal');
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange();
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [location.hash]); // re-run if location.hash changes via react-router as well
+
+  if (isAdminPanel) {
+    return <AdminPanel />;
+  }
+
+  if (isSalesPanel) {
+    return <SalesPanel />;
+  }
+
   return (
     <div className="app">
       {/* HEADER */}
@@ -340,10 +376,8 @@ function App() {
             <div className="flex gap-sm">
               {[
                 { icon: FaFacebook, label: 'Facebook' },
-                { icon: FaTwitter, label: 'Twitter' },
                 { icon: FaInstagram, label: 'Instagram' },
                 { icon: FaLinkedin, label: 'LinkedIn' },
-                { icon: FaYoutube, label: 'YouTube' }
               ].map((item, i) => (
                 <a key={i} href="#" aria-label={item.label} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', backgroundColor: 'var(--color-accent)', color: '#153351', borderRadius: '50%', transition: 'transform 0.3s, background-color 0.3s' }} onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.backgroundColor = 'var(--color-accent-light)'; }} onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.backgroundColor = 'var(--color-accent)'; }}>
                   <item.icon size={18} />

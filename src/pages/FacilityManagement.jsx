@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MapPin, Camera, BellRing, Check } from 'lucide-react';
 
 function FacilityManagement() {
   return (
@@ -99,14 +100,17 @@ function FacilityManagement() {
           {/* Feature chips */}
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.75rem', margin: '2.5rem 0 3.5rem' }}>
             {[
-              { icon: '📍', label: 'Geo-Fenced Audits' },
-              { icon: '📸', label: 'Mandatory Photo Proof' },
-              { icon: '🚨', label: 'Instant Auto-Escalation' },
-            ].map((chip, i) => (
-              <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.55rem 1.25rem', borderRadius: '50px', background: 'rgba(21,51,81,0.06)', border: '1px solid rgba(21,51,81,0.15)', color: 'var(--color-primary-dark)', fontSize: '0.9rem', fontWeight: 500 }}>
-                <span>{chip.icon}</span> {chip.label}
-              </span>
-            ))}
+              { icon: MapPin, label: 'Geo-Fenced Audits' },
+              { icon: Camera, label: 'Mandatory Photo Proof' },
+              { icon: BellRing, label: 'Instant Auto-Escalation' },
+            ].map((chip, i) => {
+              const IconComp = chip.icon;
+              return (
+                <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.55rem 1.25rem', borderRadius: '50px', background: 'rgba(21,51,81,0.06)', border: '1px solid rgba(21,51,81,0.15)', color: 'var(--color-primary-dark)', fontSize: '0.9rem', fontWeight: 500 }}>
+                  <IconComp size={16} style={{ color: 'var(--color-accent)' }} /> {chip.label}
+                </span>
+              );
+            })}
           </div>
 
           {/* Feature cards */}
@@ -117,7 +121,9 @@ function FacilityManagement() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; }}
             >
-              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', fontSize: '1.5rem', marginBottom: '1.25rem' }}>📍</div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', color: 'var(--color-accent)', marginBottom: '1.25rem' }}>
+                <MapPin size={26} />
+              </div>
               <h3 style={{ color: 'var(--color-primary-dark)', fontSize: '1.35rem', fontWeight: 700, marginBottom: '0.75rem' }}>Geo-Fenced Audits</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
                 Checklists only activate when staff are physically present at the designated location. GPS verification eliminates ghost-reporting and ensures every task is completed exactly where and when it should be.
@@ -129,7 +135,7 @@ function FacilityManagement() {
                   'Zone-wise audit trail for full accountability',
                 ].map((pt, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--color-text-muted)', fontSize: '0.88rem' }}>
-                    <span style={{ color: 'var(--color-accent)', fontWeight: 700, flexShrink: 0, marginTop: '1px' }}>✦</span> {pt}
+                    <Check size={16} style={{ color: 'var(--color-accent)', flexShrink: 0, marginTop: '2px' }} /> {pt}
                   </li>
                 ))}
               </ul>
@@ -140,7 +146,9 @@ function FacilityManagement() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; }}
             >
-              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', fontSize: '1.5rem', marginBottom: '1.25rem' }}>📸</div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', color: 'var(--color-accent)', marginBottom: '1.25rem' }}>
+                <Camera size={26} />
+              </div>
               <h3 style={{ color: 'var(--color-primary-dark)', fontSize: '1.35rem', fontWeight: 700, marginBottom: '0.75rem' }}>Mandatory Photo Proof</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
                 Critical maintenance steps require mandatory time-stamped photo uploads before the checklist can be marked complete. Visual evidence creates an irrefutable audit log that protects both staff and management.
@@ -152,7 +160,7 @@ function FacilityManagement() {
                   'Before & after photo comparison for quality assurance',
                 ].map((pt, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--color-text-muted)', fontSize: '0.88rem' }}>
-                    <span style={{ color: 'var(--color-accent)', fontWeight: 700, flexShrink: 0, marginTop: '1px' }}>✦</span> {pt}
+                    <Check size={16} style={{ color: 'var(--color-accent)', flexShrink: 0, marginTop: '2px' }} /> {pt}
                   </li>
                 ))}
               </ul>
@@ -163,7 +171,9 @@ function FacilityManagement() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; }}
             >
-              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', fontSize: '1.5rem', marginBottom: '1.25rem' }}>🚨</div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', color: 'var(--color-accent)', marginBottom: '1.25rem' }}>
+                <BellRing size={26} />
+              </div>
               <h3 style={{ color: 'var(--color-primary-dark)', fontSize: '1.35rem', fontWeight: 700, marginBottom: '0.75rem' }}>Auto-Escalation</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
                 Failed or missed audit points trigger instant alerts to supervisors — no delays, no manual follow-up. The system ensures nothing falls through the cracks, driving 100% compliance across all facility zones.
@@ -175,7 +185,7 @@ function FacilityManagement() {
                   'Automated daily compliance scorecard for management',
                 ].map((pt, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--color-text-muted)', fontSize: '0.88rem' }}>
-                    <span style={{ color: 'var(--color-accent)', fontWeight: 700, flexShrink: 0, marginTop: '1px' }}>✦</span> {pt}
+                    <Check size={16} style={{ color: 'var(--color-accent)', flexShrink: 0, marginTop: '2px' }} /> {pt}
                   </li>
                 ))}
               </ul>

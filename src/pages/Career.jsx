@@ -1,13 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
+import { Globe, TrendingUp, Utensils, HeartPulse, GraduationCap, Plane, MapPin, CheckCircle } from 'lucide-react';
 
 /* ── Apply Modal ─────────────────────────────────────────── */
 function ApplyModal({ jobTitle, onClose }) {
-  // We use formsubmit.co to handle the form submission and send it to an email
-  // The email address will be replaced when you provide it.
-  const formSubmitUrl = "https://formsubmit.co/architkore72@gmail.com";
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+  const [error, setError] = useState('');
 
   const handleBackdrop = (ev) => { if (ev.target === ev.currentTarget) onClose(); };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
+    setSubmitMessage('');
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      const apiBase = import.meta.env.DEV ? 'http://localhost:8000/api' : '/api';
+      const res = await fetch(`${apiBase}/applications.php`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Failed to submit application.');
+
+      setSubmitMessage('Your application has been submitted successfully!');
+      form.reset();
+      setTimeout(onClose, 2500);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div
@@ -42,9 +72,19 @@ function ApplyModal({ jobTitle, onClose }) {
           Apply for {jobTitle || 'Opportunity'}
         </h2>
 
-        <form action={formSubmitUrl} method="POST" encType="multipart/form-data">
-          <input type="hidden" name="_subject" value={`New Job Application: ${jobTitle || 'General'}`} />
-          <input type="hidden" name="_captcha" value="false" />
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
+          
+          {submitMessage && (
+            <div style={{ padding: '0.8rem', backgroundColor: '#f0fdf4', color: '#166534', borderRadius: '8px', marginBottom: '1rem', textAlign: 'center', fontWeight: 600 }}>
+              {submitMessage}
+            </div>
+          )}
+          
+          {error && (
+            <div style={{ padding: '0.8rem', backgroundColor: '#fee2e2', color: '#b91c1c', borderRadius: '8px', marginBottom: '1rem', textAlign: 'center' }}>
+              {error}
+            </div>
+          )}
 
           <div style={{ marginBottom: '1.25rem' }}>
             <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 700, color: '#153351', marginBottom: '0.4rem' }}>
@@ -81,8 +121,8 @@ function ApplyModal({ jobTitle, onClose }) {
             <input type="file" name="attachment" accept=".pdf,.doc,.docx" required style={{ width: '100%', padding: '0.5rem', border: '1px dashed #ccc', borderRadius: '8px', backgroundColor: '#fafafa' }} />
           </div>
 
-          <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '0.9rem', fontSize: '1.05rem', cursor: 'pointer', textAlign: 'center' }}>
-            Submit Application
+          <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ width: '100%', padding: '0.9rem', fontSize: '1.05rem', cursor: 'pointer', textAlign: 'center', opacity: isSubmitting ? 0.7 : 1 }}>
+            {isSubmitting ? 'Submitting...' : 'Submit Application'}
           </button>
         </form>
       </div>
@@ -90,70 +130,43 @@ function ApplyModal({ jobTitle, onClose }) {
   );
 }
 
-const openings = [
-  {
-    id: 1,
-    title: 'Head Chef',
-    department: 'Culinary',
-    location: 'Dubai, UAE',
-    type: 'Full-Time',
-    description: 'Lead our culinary team in delivering exceptional dining experiences across corporate and institutional clients in Dubai.',
-  },
-  {
-    id: 2,
-    title: 'Facility Manager',
-    department: 'Operations',
-    location: 'Abu Dhabi, UAE',
-    type: 'Full-Time',
-    description: 'Oversee day-to-day facility operations including cleaning, maintenance, and support services at client sites.',
-  },
-  {
-    id: 3,
-    title: 'Catering Supervisor',
-    department: 'Culinary',
-    location: 'Sharjah, UAE',
-    type: 'Full-Time',
-    description: 'Supervise catering operations for events, corporate dining, and institutional food service contracts.',
-  },
-  {
-    id: 4,
-    title: 'Nutritionist & Dietitian',
-    department: 'Healthcare',
-    location: 'Dubai, UAE',
-    type: 'Full-Time',
-    description: 'Design and oversee nutritional meal plans for hospital patient dining and clinical nutrition programs.',
-  },
-  {
-    id: 5,
-    title: 'Operations Coordinator',
-    department: 'Operations',
-    location: 'Dubai, UAE',
-    type: 'Full-Time',
-    description: 'Coordinate logistics, vendor relations, and daily operational tasks across multiple client sites.',
-  },
-  {
-    id: 6,
-    title: 'Events & Catering Manager',
-    department: 'Events',
-    location: 'Dubai, UAE',
-    type: 'Full-Time',
-    description: 'Plan and execute premium catering experiences for corporate events, conferences, and high-profile gatherings.',
-  },
-];
+// Openings are now fetched from the database via PHP backend
 
 const perks = [
-  { icon: '🌍', title: 'Global Exposure', desc: 'Work with an internationally recognized group with presence across the Middle East, Asia, and Africa.' },
-  { icon: '📈', title: 'Career Growth', desc: 'Structured career development paths with regular performance reviews and promotion opportunities.' },
-  { icon: '🍽️', title: 'World-Class Team', desc: 'Collaborate with seasoned professionals in culinary arts, facility management, and hospitality.' },
-  { icon: '🏥', title: 'Health Benefits', desc: 'Comprehensive medical, dental, and wellness benefits for you and your family.' },
-  { icon: '🎓', title: 'Training & Learning', desc: 'Access to professional development programs, culinary workshops, and certifications.' },
-  { icon: '✈️', title: 'Accommodation & Transport', desc: 'Provided for qualifying roles, ensuring comfort and ease of commute.' },
+  { icon: Globe, title: 'Global Exposure', desc: 'Work with an internationally recognized group with presence across the Middle East, Asia, and Africa.' },
+  { icon: TrendingUp, title: 'Career Growth', desc: 'Structured career development paths with regular performance reviews and promotion opportunities.' },
+  { icon: Utensils, title: 'World-Class Team', desc: 'Collaborate with seasoned professionals in culinary arts, facility management, and hospitality.' },
+  { icon: HeartPulse, title: 'Health Benefits', desc: 'Comprehensive medical, dental, and wellness benefits for you and your family.' },
+  { icon: GraduationCap, title: 'Training & Learning', desc: 'Access to professional development programs, culinary workshops, and certifications.' },
+  { icon: Plane, title: 'Accommodation & Transport', desc: 'Provided for qualifying roles, ensuring comfort and ease of commute.' },
 ];
 
 function Career() {
   const [applied, setApplied] = useState(null);
   const [showApplyModal, setShowApplyModal] = useState(false);
   const [selectedJob, setSelectedJob] = useState('');
+  
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const apiBase = import.meta.env.DEV ? 'http://localhost:8000/api' : '/api';
+        const res = await fetch(`${apiBase}/jobs.php`);
+        if (!res.ok) throw new Error('Failed to fetch jobs');
+        const data = await res.json();
+        setJobs(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchJobs();
+  }, []);
 
   const handleApplyClick = (jobTitle, jobId) => {
     setSelectedJob(jobTitle);
@@ -198,29 +211,6 @@ function Career() {
         </div>
       </section>
 
-      {/* PERKS */}
-      <section className="section section-bg-alt">
-        <div className="container">
-          <ScrollReveal direction="up" className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
-            <h2 style={{ fontSize: '2.8rem', marginBottom: 'var(--spacing-sm)' }}>
-              Why Work <span style={{ color: 'var(--color-accent)' }}>With Us</span>
-            </h2>
-            <div style={{ width: '60px', height: '3px', backgroundColor: 'var(--color-accent)', margin: '0 auto' }} />
-          </ScrollReveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
-            {perks.map((perk, i) => (
-              <ScrollReveal key={i} direction="up" delay={i * 0.08}>
-                <div className="hover-card hover-card-border" style={{ padding: 'var(--spacing-2xl)', borderRadius: 'var(--radius-lg)', backgroundColor: 'var(--color-bg)', height: '100%' }}>
-                  <div style={{ fontSize: '2.2rem', marginBottom: '12px' }}>{perk.icon}</div>
-                  <h4 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--color-primary-dark)', marginBottom: '8px' }}>{perk.title}</h4>
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{perk.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* JOB OPENINGS */}
       <section className="section">
         <div className="container">
@@ -232,46 +222,56 @@ function Career() {
           </ScrollReveal>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '900px', margin: '0 auto' }}>
-            {openings.map((job, i) => (
-              <ScrollReveal key={job.id} direction="up" delay={i * 0.07}>
-                <div className="hover-card hover-card-border" style={{
-                  padding: 'var(--spacing-2xl)',
-                  borderRadius: 'var(--radius-lg)',
-                  backgroundColor: 'var(--color-bg)',
-                  display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
-                  gap: '24px', flexWrap: 'wrap',
-                }}>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '10px' }}>
-                      <span style={{ padding: '3px 12px', borderRadius: '50px', backgroundColor: 'rgba(8,51,31,0.08)', color: 'var(--color-primary)', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                        {job.department}
-                      </span>
-                      <span style={{ padding: '3px 12px', borderRadius: '50px', backgroundColor: 'rgba(212,169,87,0.12)', color: 'var(--color-accent)', fontSize: '0.78rem', fontWeight: 700 }}>
-                        {job.type}
-                      </span>
+            {loading ? (
+              <p style={{ textAlign: 'center', color: 'var(--color-text-muted)', fontSize: '1.1rem' }}>Loading opportunities...</p>
+            ) : error ? (
+              <p style={{ textAlign: 'center', color: '#e53e3e', fontSize: '1.1rem' }}>Error loading jobs: {error}</p>
+            ) : jobs.length === 0 ? (
+              <p style={{ textAlign: 'center', color: 'var(--color-text-muted)', fontSize: '1.1rem' }}>There are currently no open positions. Please check back later.</p>
+            ) : (
+              jobs.map((job, i) => (
+                <ScrollReveal key={job.id} direction="up" delay={i * 0.07}>
+                  <div className="hover-card hover-card-border" style={{
+                    padding: 'var(--spacing-2xl)',
+                    borderRadius: 'var(--radius-lg)',
+                    backgroundColor: 'var(--color-bg)',
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
+                    gap: '24px', flexWrap: 'wrap',
+                  }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '10px' }}>
+                        <span style={{ padding: '3px 12px', borderRadius: '50px', backgroundColor: 'rgba(8,51,31,0.08)', color: 'var(--color-primary)', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                          {job.department}
+                        </span>
+                        <span style={{ padding: '3px 12px', borderRadius: '50px', backgroundColor: 'rgba(212,169,87,0.12)', color: 'var(--color-accent)', fontSize: '0.78rem', fontWeight: 700 }}>
+                          {job.type}
+                        </span>
+                      </div>
+                      <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--color-primary-dark)', marginBottom: '6px' }}>{job.title}</h3>
+                      <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <MapPin size={16} style={{ color: 'var(--color-accent)' }} /> {job.location}
+                      </p>
+                      <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{job.description}</p>
                     </div>
-                    <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--color-primary-dark)', marginBottom: '6px' }}>{job.title}</h3>
-                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginBottom: '10px' }}>📍 {job.location}</p>
-                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{job.description}</p>
+                    <div style={{ flexShrink: 0 }}>
+                      {applied === job.id ? (
+                        <span style={{ padding: '0.6rem 1.4rem', borderRadius: '50px', backgroundColor: 'rgba(8,51,31,0.1)', color: 'var(--color-primary)', fontSize: '0.9rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <CheckCircle size={16} /> Applied
+                        </span>
+                      ) : (
+                        <button
+                          onClick={() => handleApplyClick(job.title, job.id)}
+                          className="btn btn-primary"
+                          style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem', whiteSpace: 'nowrap' }}
+                        >
+                          Apply Now
+                        </button>
+                      )}
+                    </div>
                   </div>
-                  <div style={{ flexShrink: 0 }}>
-                    {applied === job.id ? (
-                      <span style={{ padding: '0.6rem 1.4rem', borderRadius: '50px', backgroundColor: 'rgba(8,51,31,0.1)', color: 'var(--color-primary)', fontSize: '0.9rem', fontWeight: 600 }}>
-                        ✓ Applied
-                      </span>
-                    ) : (
-                      <button
-                        onClick={() => handleApplyClick(job.title, job.id)}
-                        className="btn btn-primary"
-                        style={{ padding: '0.6rem 1.4rem', fontSize: '0.9rem', whiteSpace: 'nowrap' }}
-                      >
-                        Apply Now
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
+                </ScrollReveal>
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -286,14 +286,42 @@ function Career() {
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: 'var(--spacing-xl)' }}>
               We're always on the lookout for talented, passionate individuals. Send us your CV and we'll reach out when a suitable opportunity arises.
             </p>
-            <a
-
+            <button
+              onClick={() => handleApplyClick('', '')}
               className="btn btn-primary"
-              style={{ padding: '0.9rem 2.5rem', fontSize: '1rem' }}
+              style={{ padding: '0.9rem 2.5rem', fontSize: '1rem', border: 'none', cursor: 'pointer' }}
             >
               Send Your CV
-            </a>
+            </button>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* PERKS */}
+      <section className="section section-bg-alt">
+        <div className="container">
+          <ScrollReveal direction="up" className="text-center" style={{ marginBottom: 'var(--spacing-3xl)' }}>
+            <h2 style={{ fontSize: '2.8rem', marginBottom: 'var(--spacing-sm)' }}>
+              Why Work <span style={{ color: 'var(--color-accent)' }}>With Us</span>
+            </h2>
+            <div style={{ width: '60px', height: '3px', backgroundColor: 'var(--color-accent)', margin: '0 auto' }} />
+          </ScrollReveal>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
+            {perks.map((perk, i) => {
+              const IconComp = perk.icon;
+              return (
+                <ScrollReveal key={i} direction="up" delay={i * 0.08}>
+                  <div className="hover-card hover-card-border" style={{ padding: 'var(--spacing-2xl)', borderRadius: 'var(--radius-lg)', backgroundColor: 'var(--color-bg)', height: '100%' }}>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '56px', height: '56px', borderRadius: '16px', backgroundColor: 'rgba(212,169,87,0.15)', color: 'var(--color-accent)', marginBottom: '16px' }}>
+                      <IconComp size={28} />
+                    </div>
+                    <h4 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--color-primary-dark)', marginBottom: '8px' }}>{perk.title}</h4>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>{perk.desc}</p>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 

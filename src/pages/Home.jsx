@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { VerticalImageStack } from '../components/ui/vertical-image-stack';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { useInView } from 'framer-motion';
+import { Leaf, Scale, Handshake, ShieldCheck, Sparkles, CheckCircle2 } from 'lucide-react';
 
 function AnimatedCounter({ end, suffix, prefix }) {
   const [count, setCount] = useState(0);
@@ -122,13 +123,13 @@ function Home() {
             </p>
             <ul className="flex flex-col gap-md" style={{ color: 'var(--color-primary-dark)', fontWeight: 500, marginTop: 'var(--spacing-xl)' }}>
               <li className="flex items-center gap-md">
-                <span style={{ color: 'var(--color-accent)', fontSize: '1.5rem' }}>✧</span> Decades of extensive luxury client experience
+                <CheckCircle2 style={{ color: 'var(--color-accent)', flexShrink: 0 }} size={20} /> Decades of extensive luxury client experience
               </li>
               <li className="flex items-center gap-md">
-                <span style={{ color: 'var(--color-accent)', fontSize: '1.5rem' }}>✧</span> Embracing cutting-edge culinary technology
+                <CheckCircle2 style={{ color: 'var(--color-accent)', flexShrink: 0 }} size={20} /> Embracing cutting-edge culinary technology
               </li>
               <li className="flex items-center gap-md">
-                <span style={{ color: 'var(--color-accent)', fontSize: '1.5rem' }}>✧</span> Empowering a dedicated, world-class workforce
+                <CheckCircle2 style={{ color: 'var(--color-accent)', flexShrink: 0 }} size={20} /> Empowering a dedicated, world-class workforce
               </li>
             </ul>
           </ScrollReveal>
@@ -266,11 +267,11 @@ function Home() {
 
             <div className="flex stats-row" style={{ maxWidth: '1200px', margin: '0 auto', justifyContent: 'center', flexWrap: 'wrap', columnGap: 'clamp(2rem, 4.5vw, 4.5rem)', rowGap: 'var(--spacing-xl)' }}>
               {[
-                { num: 400, prefix: 'AED ', suffix: 'M+', label: 'REVENUE' },
+                { num: 200, prefix: 'AED ', suffix: 'M+', label: 'REVENUE' },
                 { num: 200000, suffix: '+', label: 'MEALS SERVED PER DAY' },
                 { num: 100, suffix: '+', label: 'GLOBAL SITES' },
-                { num: 5500, suffix: '+', label: 'EMPLOYEES' },
-                { num: 13, suffix: 'M+', label: 'SQ.FT OPERATIONAL' },
+                { num: 6000, suffix: '+', label: 'EMPLOYEES' },
+                { num: 75, suffix: 'M+', label: 'SQ.FT OPERATIONAL' },
               ].map((stat, idx) => (
                 <div key={idx}>
                   <div style={{ fontSize: 'clamp(2.1rem, 2.6vw, 2.9rem)', fontFamily: 'var(--font-serif)', color: 'var(--color-accent)', lineHeight: 1.2, whiteSpace: 'nowrap' }}>
@@ -295,17 +296,22 @@ function Home() {
 
             <div className="values-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--spacing-lg)' }}>
               {[
-                { icon: '🌿', title: 'Environment', desc: 'Positive action through environmental protection.' },
-                { icon: '⚖️', title: 'Integrity', desc: 'Absolute transparency in all business practices.' },
-                { icon: '🤝', title: 'Loyalty', desc: 'Unwavering dedication to our clients.' },
-                { icon: '🛡️', title: 'Safety', desc: 'Rigorous safety and hygiene protocols.' }
-              ].map((val, idx) => (
-                <div key={idx} className="hover-card" style={{ padding: 'var(--spacing-xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)' }}>
-                  <div style={{ fontSize: '2rem', marginBottom: 'var(--spacing-md)' }}>{val.icon}</div>
-                  <h4 style={{ marginBottom: 'var(--spacing-xs)', fontSize: '1.25rem' }}>{val.title}</h4>
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>{val.desc}</p>
-                </div>
-              ))}
+                { icon: Leaf, title: 'Environment', desc: 'Positive action through environmental protection.' },
+                { icon: Scale, title: 'Integrity', desc: 'Absolute transparency in all business practices.' },
+                { icon: Handshake, title: 'Loyalty', desc: 'Unwavering dedication to our clients.' },
+                { icon: ShieldCheck, title: 'Safety', desc: 'Rigorous safety and hygiene protocols.' }
+              ].map((val, idx) => {
+                const IconComp = val.icon;
+                return (
+                  <div key={idx} className="hover-card" style={{ padding: 'var(--spacing-xl)', backgroundColor: 'var(--color-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)' }}>
+                    <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', borderRadius: '12px', backgroundColor: 'rgba(212,169,87,0.12)', color: 'var(--color-accent)', marginBottom: 'var(--spacing-md)' }}>
+                      <IconComp size={24} />
+                    </div>
+                    <h4 style={{ marginBottom: 'var(--spacing-xs)', fontSize: '1.25rem' }}>{val.title}</h4>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>{val.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </ScrollReveal>
           <ScrollReveal direction="left" className="min-h-600" style={{ flex: '1', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

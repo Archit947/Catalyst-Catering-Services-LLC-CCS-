@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
+import { CheckCircle2, RefreshCw, Smartphone, Receipt, Calendar, Monitor, Package, Check } from 'lucide-react';
 import serviceImage2 from '../assets/2.png';
 import serviceImage3 from '../assets/3.png';
 import serviceImage4 from '../assets/4.png';
@@ -38,13 +39,13 @@ function Services() {
             </p>
             <ul className="flex flex-col gap-md" style={{ color: 'var(--color-primary-dark)', fontWeight: 500 }}>
               <li className="flex items-center gap-md">
-                <span style={{ color: 'var(--color-accent)', fontSize: '1.5rem' }}>✧</span> Sustainable & Locally Sourced Ingredients
+                <CheckCircle2 style={{ color: 'var(--color-accent)', flexShrink: 0 }} size={20} /> Sustainable &amp; Locally Sourced Ingredients
               </li>
               <li className="flex items-center gap-md">
-                <span style={{ color: 'var(--color-accent)', fontSize: '1.5rem' }}>✧</span> Stringent Health & Hygiene Standards
+                <CheckCircle2 style={{ color: 'var(--color-accent)', flexShrink: 0 }} size={20} /> Stringent Health &amp; Hygiene Standards
               </li>
               <li className="flex items-center gap-md">
-                <span style={{ color: 'var(--color-accent)', fontSize: '1.5rem' }}>✧</span> Customized Culinary Solutions
+                <CheckCircle2 style={{ color: 'var(--color-accent)', flexShrink: 0 }} size={20} /> Customized Culinary Solutions
               </li>
             </ul>
           </ScrollReveal>
@@ -200,14 +201,17 @@ function Services() {
           <ScrollReveal direction="up" delay={0.1}>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.75rem', margin: '2.5rem 0 3.5rem' }}>
               {[
-                { icon: '♻️', label: 'Zero-Waste & Pre-Booking' },
-                { icon: '📱', label: 'Omni-Channel QSR' },
-                { icon: '🎟️', label: 'Precision KOT & Inventory' },
-              ].map((chip, i) => (
-                <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.55rem 1.25rem', borderRadius: '50px', background: 'rgba(21,51,81,0.06)', border: '1px solid rgba(21,51,81,0.15)', color: 'var(--color-primary-dark)', fontSize: '0.9rem', fontWeight: 500 }}>
-                  <span>{chip.icon}</span> {chip.label}
-                </span>
-              ))}
+                { icon: RefreshCw, label: 'Zero-Waste & Pre-Booking' },
+                { icon: Smartphone, label: 'Omni-Channel QSR' },
+                { icon: Receipt, label: 'Precision KOT & Inventory' },
+              ].map((chip, i) => {
+                const IconComp = chip.icon;
+                return (
+                  <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.55rem 1.25rem', borderRadius: '50px', background: 'rgba(21,51,81,0.06)', border: '1px solid rgba(21,51,81,0.15)', color: 'var(--color-primary-dark)', fontSize: '0.9rem', fontWeight: 500 }}>
+                    <IconComp size={16} style={{ color: 'var(--color-accent)' }} /> {chip.label}
+                  </span>
+                );
+              })}
             </div>
           </ScrollReveal>
 
@@ -220,7 +224,9 @@ function Services() {
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; }}
               >
-                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', fontSize: '1.5rem', marginBottom: '1.25rem' }}>📅</div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', color: 'var(--color-accent)', marginBottom: '1.25rem' }}>
+                  <Calendar size={26} />
+                </div>
                 <h3 style={{ color: 'var(--color-primary-dark)', fontSize: '1.35rem', fontWeight: 700, marginBottom: '0.75rem' }}>Pre-Meal Booking</h3>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
                   Revolutionizes corporate dining by eliminating food waste and long queues. Employees pre-select their meals via a mobile app, giving cafeterias precise production data so every employee gets their meal without the wait.
@@ -232,7 +238,7 @@ function Services() {
                     'Seamless deduction from employee salary accounts',
                   ].map((pt, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--color-text-muted)', fontSize: '0.88rem' }}>
-                      <span style={{ color: 'var(--color-accent)', fontWeight: 700, flexShrink: 0, marginTop: '1px' }}>✦</span> {pt}
+                      <Check size={16} style={{ color: 'var(--color-accent)', flexShrink: 0, marginTop: '2px' }} /> {pt}
                     </li>
                   ))}
                 </ul>
@@ -245,7 +251,9 @@ function Services() {
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; }}
               >
-                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', fontSize: '1.5rem', marginBottom: '1.25rem' }}>🖥️</div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', color: 'var(--color-accent)', marginBottom: '1.25rem' }}>
+                  <Monitor size={26} />
+                </div>
                 <h3 style={{ color: 'var(--color-primary-dark)', fontSize: '1.35rem', fontWeight: 700, marginBottom: '0.75rem' }}>QSR Platform</h3>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
                   A complete operating system for Quick Service Restaurants. Unifies in-store kiosks, table-side QR ordering, and mobile app deliveries into a single powerful kitchen display system, maximizing throughput and customer satisfaction.
@@ -257,7 +265,7 @@ function Services() {
                     'Live heatmaps of kitchen performance and sales',
                   ].map((pt, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--color-text-muted)', fontSize: '0.88rem' }}>
-                      <span style={{ color: 'var(--color-accent)', fontWeight: 700, flexShrink: 0, marginTop: '1px' }}>✦</span> {pt}
+                      <Check size={16} style={{ color: 'var(--color-accent)', flexShrink: 0, marginTop: '2px' }} /> {pt}
                     </li>
                   ))}
                 </ul>
@@ -270,7 +278,9 @@ function Services() {
                 onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)'; }}
                 onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; }}
               >
-                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', fontSize: '1.5rem', marginBottom: '1.25rem' }}>📦</div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(245,166,35,0.25), rgba(245,166,35,0.05))', border: '1px solid rgba(245,166,35,0.35)', color: 'var(--color-accent)', marginBottom: '1.25rem' }}>
+                  <Package size={26} />
+                </div>
                 <h3 style={{ color: 'var(--color-primary-dark)', fontSize: '1.35rem', fontWeight: 700, marginBottom: '0.75rem' }}>KOT &amp; Pantry</h3>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: '1.5rem' }}>
                   Designed for corporate pantries and large institution kitchens, this platform manages token issuance, inventory consumption, and staff billing with surgical precision — ensuring nothing slips through the cracks.
@@ -282,7 +292,7 @@ function Services() {
                     'Consolidated monthly billing for corporate clients',
                   ].map((pt, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', color: 'var(--color-text-muted)', fontSize: '0.88rem' }}>
-                      <span style={{ color: 'var(--color-accent)', fontWeight: 700, flexShrink: 0, marginTop: '1px' }}>✦</span> {pt}
+                      <Check size={16} style={{ color: 'var(--color-accent)', flexShrink: 0, marginTop: '2px' }} /> {pt}
                     </li>
                   ))}
                 </ul>
